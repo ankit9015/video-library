@@ -3,12 +3,15 @@ import SearchBox from "../components/SearchBox/SearchBox";
 import { MdSearch, MdMenu, FaRegUserCircle } from "../constants/icon";
 import "./pageLayout.css";
 
-function Header() {
+function Header(props) {
   const [showSearchbox, setShowSearchbox] = useState(false);
   return (
     <div className="header flex-row  flex-align-center p-xs">
       <div className="flex-row  flex-align-center gap-5">
-        <span className="header__menu-button text-xl icon-button">
+        <span
+          className="header__menu-button text-xl icon-button"
+          onClick={() => props.setShowSidebar((prev) => !prev)}
+        >
           <MdMenu />
         </span>
         <span className="header__logo text-md m-xs">Logo</span>
