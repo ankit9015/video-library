@@ -6,6 +6,8 @@ import {
   MdHistory,
   MdOutlineWatchLater,
   MdMenu,
+  MdPlaylistPlay,
+  MdSettings,
 } from "react-icons/md";
 
 import {
@@ -16,7 +18,10 @@ import {
   FaSearch,
 } from "react-icons/fa";
 
+import { BiLike } from "react-icons/bi";
+
 export {
+  BiLike,
   FaRegUserCircle,
   FaSearch,
   FaFilter,
@@ -29,4 +34,6 @@ export {
   MdHistory,
   MdOutlineWatchLater,
   MdMenu,
+  MdPlaylistPlay,
+  MdSettings,
 };
