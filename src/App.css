@@ -43,11 +43,24 @@ html {
   grid-column: 1 / -1;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1250px) {
   .grid-container {
     grid-template-columns: auto 1fr;
   }
+}
+
+@media screen and (min-width: 900px) {
+  .grid-container {
+    grid-template-columns: 6rem 1fr;
+  }
+
   .sidebar {
     position: relative;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 62.5%;
   }
 }

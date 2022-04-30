@@ -56,7 +56,11 @@
   }
 
   .sidebar {
-    width: auto;
+    width: max-content;
+  }
+
+  .sidebar:hover .sidebar__nav-button > * {
+    display: block;
   }
 }
 @media screen and (max-width: 1000px) {
@@ -75,11 +79,11 @@
   }
 
   .sidebar {
-    display: none;
+    transform: translateX(-100%);
   }
 
   .sidebar--visible {
-    display: block;
+    transform: translateX(0);
   }
 
   .sidebar__nav-button > p {
@@ -108,7 +112,7 @@
   }
 
   .searchbox--visible {
-    display: block;
+    transform: translateX(0);
     position: fixed;
   }
 
