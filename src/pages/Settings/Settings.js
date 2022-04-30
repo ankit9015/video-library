@@ -1,7 +1,7 @@
 import React from "react";
 
 function Settings() {
-  return <div>Settings</div>;
+  return <div className="main--grid">Settings</div>;
 }
 
 export default Settings;

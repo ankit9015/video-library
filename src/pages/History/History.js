@@ -1,7 +1,7 @@
 import React from "react";
 
 function History() {
-  return <div>History</div>;
+  return <div className="main--grid">History</div>;
 }
 
 export default History;
