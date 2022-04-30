@@ -10,6 +10,7 @@ import {
   Signup,
   WatchLater,
 } from "../pages";
+import MockAPI from "../pages/Mockapi";
 
 function Main() {
   return (
@@ -23,6 +24,7 @@ function Main() {
         <Route path="/watch-later" element={<WatchLater />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/playlist" element={<Playlist />} />
+        <Route path="/mock-api" element={<MockAPI />} />
       </Routes>
     </div>
   );

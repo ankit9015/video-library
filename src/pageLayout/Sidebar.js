@@ -73,6 +73,15 @@ function Sidebar(props) {
         <MdSettings className="text-lg" />
         <p>Settings</p>
       </NavLink>
+
+      <NavLink
+        style={getActiveLinkStyle}
+        to="/mock-api"
+        className="sidebar__nav-button no-link m-xs flex-row gap-5 flex-align-center"
+      >
+        <MdSettings className="text-lg" />
+        <p>MockAPI</p>
+      </NavLink>
     </div>
   );
 }
