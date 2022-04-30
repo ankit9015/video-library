@@ -1,0 +1,28 @@
+.search-box {
+  box-sizing: border-box;
+  display: flex;
+  gap: 5px;
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+.search-box input {
+  border: none;
+  flex: 1;
+  flex-shrink: 99;
+  background-color: inherit;
+  width: 50%;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-bottom: 2px solid var(--input-border);
+}
+
+.no-link {
+  text-decoration: none;
+  color: inherit;
+}
