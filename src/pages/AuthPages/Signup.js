@@ -34,8 +34,19 @@ function Signup() {
   };
 
   const createAccount = () => {
-    const { firstname, lastname, email, password, acceptTAndC } = signupForm;
+    const {
+      firstname,
+      lastname,
+      email,
+      password,
+      confirmPassword,
+      acceptTAndC,
+    } = signupForm;
     console.log(signupForm);
+    if (password !== "" && password !== confirmPassword) {
+      alert("Write same password in confirm password");
+      return;
+    }
     if (email !== "" && password !== "" && acceptTAndC) {
       signupHandler({ firstname, lastname, email, password });
     }

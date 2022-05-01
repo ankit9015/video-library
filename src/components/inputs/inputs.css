@@ -12,5 +12,6 @@
 .email-input,
 .password-input {
   border: none;
+  background-color: inherit;
   border-bottom: 2px solid var(--input-border);
 }
