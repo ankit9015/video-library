@@ -1,0 +1,33 @@
+.login__card,
+.signup__card {
+  padding: 10px;
+  max-width: 30%;
+  margin: 5rem 0;
+}
+
+.login__main,
+.signup__main {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  .login__card,
+  .signup__card {
+    max-width: 45%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .login__card,
+  .signup__card {
+    max-width: 55%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .login__card,
+  .signup__card {
+    max-width: 80%;
+  }
+}

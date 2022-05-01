@@ -44,10 +44,7 @@
   gap: 5px;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
-}
-
-.main--grid > div {
-  background-color: red;
+  font-size: large;
 }
 
 @media screen and (max-width: 1250px) {
@@ -72,10 +69,6 @@
 @media screen and (max-width: 900px) {
   .header__menu-button {
     display: block;
-  }
-
-  .logout-button {
-    display: none;
   }
 
   .sidebar {
@@ -112,7 +105,7 @@
   }
 
   .searchbox--visible {
-    transform: translateX(0);
+    display: block;
     position: fixed;
   }
 
