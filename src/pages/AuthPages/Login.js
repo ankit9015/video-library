@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { EmailInput, PasswordInput } from "../../components/inputs";
+import { useAuth } from "../../context/AuthContext/AuthContext";
 
 import "../pages.css";
 
@@ -12,6 +13,8 @@ function Login() {
     password: savedLoginInfo ? savedLoginInfo.password : "",
     rememberUser: savedLoginInfo ? true : false,
   });
+
+  const { loginHandler } = useAuth();
 
   const guestUser = {
     email: "adarshbalika@gmail.com",
@@ -30,7 +33,7 @@ function Login() {
         JSON.stringify({ email: email, password: password })
       );
     }
-    // loginHandler({ email, password });
+    loginHandler({ email, password });
   };
 
   return (

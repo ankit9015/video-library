@@ -2,10 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchBox from "../components/SearchBox/SearchBox";
 import { MdSearch, MdMenu, FaRegUserCircle } from "../constants/icon";
+import { useAuth } from "../context/AuthContext/AuthContext";
 import "./pageLayout.css";
 
 function Header(props) {
   const [showSearchbox, setShowSearchbox] = useState(false);
+  const { authState, logOutHandler } = useAuth();
   return (
     <div className="header flex-row  flex-align-center p-xs">
       <div className="flex-row  flex-align-center gap-5">
@@ -31,12 +33,21 @@ function Header(props) {
         >
           <MdSearch />
         </span>
-        <Link
-          to="/login"
-          className="header__login text-md button no-link button-primary"
-        >
-          Login
-        </Link>
+        {authState.isLoggedIn ? (
+          <button
+            className="header__logout text-md button button-primary"
+            onClick={() => logOutHandler()}
+          >
+            Log-out
+          </button>
+        ) : (
+          <Link
+            to="/login"
+            className="header__login text-md button no-link button-primary"
+          >
+            Login
+          </Link>
+        )}
         <div className=" header__avatar avatar m-xs">
           <FaRegUserCircle />
         </div>

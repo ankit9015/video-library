@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { EmailInput, PasswordInput } from "../../components/inputs";
+import { useAuth } from "../../context/AuthContext/AuthContext";
 
 import "../pages.css";
 
@@ -13,6 +14,8 @@ function Signup() {
     confirmPassword: "",
     acceptTAndC: false,
   });
+
+  const { signupHandler } = useAuth();
 
   useEffect(() => {
     document.title = "Signup";
@@ -31,10 +34,10 @@ function Signup() {
   };
 
   const createAccount = () => {
-    const { email, password, acceptTAndC } = signupForm;
+    const { firstname, lastname, email, password, acceptTAndC } = signupForm;
     console.log(signupForm);
     if (email !== "" && password !== "" && acceptTAndC) {
-      // signupHandler({ firstname, lastname, email, password });
+      signupHandler({ firstname, lastname, email, password });
     }
   };
 
@@ -82,11 +85,15 @@ function Signup() {
             <PasswordInput
               value={signupForm.password}
               onChange={(e) => updateSignupForm(e)}
+              displayName="Password:"
+              name="password"
             />
 
             <PasswordInput
-              value={signupForm.consfirmPassword}
+              value={signupForm.confirmPassword}
               onChange={(e) => updateSignupForm(e)}
+              displayName="Confirm Password:"
+              name="confirmPassword"
             />
 
             <label>

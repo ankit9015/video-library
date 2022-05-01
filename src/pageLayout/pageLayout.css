@@ -71,10 +71,6 @@
     display: block;
   }
 
-  .logout-button {
-    display: none;
-  }
-
   .sidebar {
     transform: translateX(-100%);
   }

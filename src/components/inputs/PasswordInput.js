@@ -4,15 +4,17 @@ import "./inputs.css";
 
 function PasswordInput(props) {
   const [showPassword, setShowPassword] = useState(false);
-  const { onChange: _onChange, value: _value } = props;
+  const { displayName, name, onChange: _onChange, value: _value } = props;
   return (
     <label className="flex-column">
-      <span className="text-md socketui-label label-required">Password:</span>
+      <span className="text-md socketui-label label-required">
+        {displayName}
+      </span>
       <div className="flex-row input-border">
         <input
           className="socketui-input password-input text-md"
           type={showPassword ? "text" : "password"}
-          name="password"
+          name={name}
           placeholder="******"
           required
           value={_value}
