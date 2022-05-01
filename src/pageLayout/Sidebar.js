@@ -14,6 +14,7 @@ function Sidebar(props) {
     color: isActive ? "var(--secondary-color)" : "",
     fontWeight: "bold",
   });
+
   return (
     <div
       className={`sidebar p-xs text-md flex-column gap-5 ${

@@ -25,7 +25,7 @@ html {
 }
 
 .main {
-  background-color: blue;
+  background-color: var(--white);
   grid-row: 2 / 3;
 }
 
@@ -51,6 +51,18 @@ html {
   .sidebar {
     position: relative;
   }
+
+  .grid-container.form-page {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-container.form-page {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-container.form-page .sidebar {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 900px) and (max-width: 1250px) {
@@ -60,5 +72,19 @@ html {
 
   .sidebar {
     position: relative;
+  }
+
+  .grid-container.form-page {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-container.form-page .sidebar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  html {
+    font-size: 50%;
   }
 }

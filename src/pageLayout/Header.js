@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import SearchBox from "../components/SearchBox/SearchBox";
 import { MdSearch, MdMenu, FaRegUserCircle } from "../constants/icon";
 import "./pageLayout.css";
@@ -30,9 +31,13 @@ function Header(props) {
         >
           <MdSearch />
         </span>
-        <button className="header__login text-md">Login</button>
-        <div className=" header__avatar avatar m-xs avatar-text">
-          {/* <span className="text-lg">G</span> */}
+        <Link
+          to="/login"
+          className="header__login text-md button no-link button-primary"
+        >
+          Login
+        </Link>
+        <div className=" header__avatar avatar m-xs">
           <FaRegUserCircle />
         </div>
       </div>

@@ -1,0 +1,16 @@
+.password-show {
+  align-self: center;
+  margin-left: auto;
+  z-index: 99;
+}
+
+.password-input {
+  flex: 99 1 auto;
+  width: 100%;
+}
+
+.email-input,
+.password-input {
+  border: none;
+  border-bottom: 2px solid var(--input-border);
+}
