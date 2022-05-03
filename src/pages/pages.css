@@ -11,6 +11,11 @@
   height: 100%;
 }
 
+.home__category-list {
+  padding: 1rem;
+  gap: 1rem;
+}
+
 @media screen and (max-width: 1000px) {
   .login__card,
   .signup__card {
