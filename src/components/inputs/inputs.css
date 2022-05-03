@@ -9,8 +9,8 @@
   width: 100%;
 }
 
-.email-input,
-.password-input {
+.password-input,
+.email-input {
   border: none;
   background-color: inherit;
   border-bottom: 2px solid var(--input-border);

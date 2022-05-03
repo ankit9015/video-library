@@ -8,19 +8,44 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "Computer Programming",
+    categoryName: "Lofi",
+    media: "/assets/categories/lofi.gif",
     description:
       "Computer programming is the process of designing and building an executable computer program to accomplish a specific computing",
   },
   {
     _id: uuid(),
-    categoryName: "Frontend Development",
+    categoryName: "Pop",
+    media: "/assets/categories/pop.gif",
     description:
       "Front-end web development, also known as client-side development is the practice of producing HTML, CSS and JavaScript for a website or Web Application",
   },
   {
     _id: uuid(),
-    categoryName: "Backend Development",
+    categoryName: "Base boosters",
+    media: "/assets/categories/bass.gif",
+    description:
+      "Backend Development is also known as server-side development. It is everything that the users don't see and contains behind-the-scenes activities that occur when performing any action on a website.",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Rap",
+    media: "/assets/categories/rap.gif",
+
+    description:
+      "Backend Development is also known as server-side development. It is everything that the users don't see and contains behind-the-scenes activities that occur when performing any action on a website.",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Gaming",
+    media: "/assets/categories/gaming.gif",
+    description:
+      "Backend Development is also known as server-side development. It is everything that the users don't see and contains behind-the-scenes activities that occur when performing any action on a website.",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Meditation",
+    media: "/assets/categories/meditation.gif",
     description:
       "Backend Development is also known as server-side development. It is everything that the users don't see and contains behind-the-scenes activities that occur when performing any action on a website.",
   },
