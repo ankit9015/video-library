@@ -26,7 +26,8 @@ function Home() {
       {categories.map((item) => (
         <Card
           title={item.categoryName}
-          media={item.media}
+          gif={item.gif}
+          img={item.img}
           variant="category-card"
           className="m-xs"
         />

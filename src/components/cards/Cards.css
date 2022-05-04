@@ -16,17 +16,25 @@
   left: 50%;
   transform: translate(-50%, 50%);
 }
+.card__content-background {
+  z-index: -1;
+  position: absolute;
+}
 
 .card__title {
   font-weight: 600;
   font-size: 2rem;
+  z-index: 1;
 }
-
+.card__content-background,
 .card__media {
   width: 100%;
   height: auto;
-  transform: scale(0);
   border-radius: 10px;
+}
+
+.card__media {
+  transform: scale(0);
 }
 
 .category-card:hover .card__media {
