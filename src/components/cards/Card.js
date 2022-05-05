@@ -14,10 +14,7 @@ function Card(props) {
           alt="category-gif"
         />
       </div>
-      <div
-        className="card__content"
-        // data-background={`/assets/categories/${props.img}`}
-      >
+      <div className="card__content">
         <img
           className="card__content-background"
           src={`/assets/categories/${props.img}`}

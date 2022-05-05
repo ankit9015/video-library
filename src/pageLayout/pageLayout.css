@@ -1,6 +1,8 @@
 .header {
   justify-content: space-between;
   position: relative;
+  max-width: 100vw;
+  background-color: var(--black-bg);
 }
 
 .header__avatar.avatar {
@@ -38,7 +40,7 @@
 
 /* main-------------------- */
 .main--grid {
-  padding: 5px 5rem 5rem;
+  padding: 5px 7rem 7rem;
   background-color: var(--black2-bg);
   display: grid;
   gap: 5px;
@@ -97,7 +99,7 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .header__search-show-button {
     display: block;
   }
@@ -105,7 +107,6 @@
   .header__search-box {
     display: none;
     width: 100%;
-    /* height: 8rem; */
     padding: 10px;
     z-index: 999;
     top: 0;

@@ -2,11 +2,9 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Banner from "../../components/Banner/Banner";
 import Card from "../../components/cards/Card";
-// import fetchCategories from "../../service/fetch/fetchCategories";
 import "../pages.css";
 
 function Home() {
-  // const category = ["Drama", "Comedy", "Horror"];
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     (async () => {
@@ -19,7 +17,10 @@ function Home() {
     })();
   }, []);
 
-  console.log(categories);
+  useEffect(() => {
+    document.title = "Home";
+  }, []);
+
   return (
     <div className="home main--grid">
       <Banner />
@@ -29,15 +30,10 @@ function Home() {
           gif={item.gif}
           img={item.img}
           variant="category-card"
-          className="m-xs"
+          className="m-xs category-card"
         />
       ))}
-      <div className="home__trending-list">
-        {/* <h4>Trending</h4> */}
-        {/* {trending.map((item) => (
-          <div>ite</div>
-        ))} */}
-      </div>
+      <div className="home__trending-list"></div>
     </div>
   );
 }

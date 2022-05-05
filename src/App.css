@@ -10,11 +10,13 @@ html {
   --primary-color: #40e967;
   --secondary-color: #48c5f6;
   --white: rgb(255, 255, 255);
-  height: 100vh;
+  --translucent-white: rgba(255, 255, 255, 0.31);
+  --translucent-gray: rgba(51, 53, 52, 0.61);
 }
 
 .App {
   width: 100%;
+  max-width: 100%;
   min-height: 100vh;
   background-color: var(--black-bg);
   color: var(--white);

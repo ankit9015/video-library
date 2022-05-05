@@ -42,7 +42,6 @@ function Signup() {
       confirmPassword,
       acceptTAndC,
     } = signupForm;
-    console.log(signupForm);
     if (password !== "" && password !== confirmPassword) {
       alert("Write same password in confirm password");
       return;

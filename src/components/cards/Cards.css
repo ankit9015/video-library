@@ -1,5 +1,5 @@
 .category-card {
-  background-color: #2e6967;
+  background-color: var(--dark-gray);
   min-height: 10rem;
   position: relative;
   padding: 0;
