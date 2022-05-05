@@ -25,7 +25,7 @@
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
   .login__card,
   .signup__card {
     max-width: 80%;

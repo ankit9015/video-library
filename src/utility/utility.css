@@ -1,7 +1,6 @@
 .capsule-tag {
   box-sizing: border-box;
   border-radius: 99rem;
-  background-color: aqua;
   width: max-content;
   padding: 0.5rem 1rem;
 }

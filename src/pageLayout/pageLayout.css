@@ -99,7 +99,7 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 490px) {
   .header__search-show-button {
     display: block;
   }
