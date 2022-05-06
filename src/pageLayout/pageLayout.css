@@ -40,8 +40,8 @@
 
 /* main-------------------- */
 .main--grid {
-  padding: 5px 7rem 7rem;
-  background-color: var(--black2-bg);
+  padding: 5px 5% 5%;
+
   display: grid;
   gap: 5px;
   grid-template-columns: repeat(4, 1fr);
@@ -99,7 +99,7 @@
   }
 }
 
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 500px) {
   .header__search-show-button {
     display: block;
   }

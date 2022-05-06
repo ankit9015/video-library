@@ -17,9 +17,10 @@ html {
 .App {
   width: 100%;
   max-width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background-color: var(--black-bg);
   color: var(--white);
+  position: relative;
 }
 
 .grid-container {
@@ -39,6 +40,9 @@ html {
 
 .main {
   grid-row: 2 / 3;
+  overflow-y: scroll;
+  height: 100%;
+  background-color: var(--black2-bg);
 }
 
 .sidebar {
@@ -46,6 +50,7 @@ html {
   z-index: 99;
   position: absolute;
   width: 15rem;
+  height: calc(100% - 3.5rem);
 }
 
 .footer {
@@ -61,6 +66,7 @@ html {
 
   .sidebar {
     position: relative;
+    height: auto;
   }
 
   .grid-container.form-page {
@@ -83,6 +89,7 @@ html {
 
   .sidebar {
     position: relative;
+    height: auto;
   }
 
   .grid-container.form-page {
@@ -94,7 +101,7 @@ html {
   }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 490px) {
   html {
     font-size: 50%;
   }

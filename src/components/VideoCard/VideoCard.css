@@ -1,0 +1,43 @@
+.video-card {
+  background-color: var(--black);
+  position: relative;
+  padding: 0;
+  border-radius: 10px;
+  margin: 10px;
+  justify-self: center;
+  align-self: center;
+  width: 90%;
+  height: 25vw;
+}
+
+.video-card .card__media-container {
+  height: 60%;
+  position: relative;
+}
+
+@media screen and (max-width: 1000px) {
+  .video-card {
+    height: 33vw;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .video-card {
+    /* width: 50vw; */
+    height: 55vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .video-card {
+    width: 70vw;
+    height: 75vw;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .video-card {
+    width: 85vw;
+    height: 95vw;
+  }
+}

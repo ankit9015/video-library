@@ -26,7 +26,7 @@ function Banner() {
     <div className="banner">
       <Slider {...settings}>
         {bannerImageDb.map((item) => (
-          <div className="banner__slider">
+          <div key={item.id} className="banner__slider">
             <div className="banner__img-container">
               <picture>
                 <source

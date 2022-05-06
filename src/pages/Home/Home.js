@@ -26,6 +26,7 @@ function Home() {
       <Banner />
       {categories.map((item) => (
         <Card
+          key={item._id}
           title={item.categoryName}
           gif={item.gif}
           img={item.img}

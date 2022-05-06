@@ -11,6 +11,7 @@ import {
   Playlist,
   Settings,
   Signup,
+  Explore,
   WatchLater,
 } from "../pages";
 import MockAPI from "../pages/Mockapi";
@@ -37,6 +38,7 @@ function Main() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/explore" element={<Explore />} />
         <Route
           path="/history"
           element={
