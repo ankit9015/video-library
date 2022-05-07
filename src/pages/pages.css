@@ -25,9 +25,16 @@
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
   .login__card,
   .signup__card {
     max-width: 80%;
+  }
+
+  .category-card {
+    width: 80%;
+    justify-self: center;
+    align-self: center;
+    margin-top: 10px;
   }
 }

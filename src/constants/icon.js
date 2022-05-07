@@ -8,6 +8,7 @@ import {
   MdMenu,
   MdPlaylistPlay,
   MdSettings,
+  MdOutlinePlayCircle,
 } from "react-icons/md";
 
 import {
@@ -31,6 +32,7 @@ export {
   MdDarkMode,
   MdSearch,
   MdHome,
+  MdOutlinePlayCircle,
   MdHistory,
   MdOutlineWatchLater,
   MdMenu,

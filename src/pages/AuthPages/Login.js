@@ -62,6 +62,8 @@ function Login() {
                     password: e.target.value,
                   })
                 }
+                displayName="Password:"
+                name="password"
               />
 
               <label>
@@ -79,7 +81,7 @@ function Login() {
                 <span className="text-md">Remember me</span>
               </label>
 
-              <Link className="text-blue" to="">
+              <Link className="text-md no-link" to="">
                 Forgot your Password?
               </Link>
               <button

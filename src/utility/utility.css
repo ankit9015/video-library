@@ -1,0 +1,36 @@
+.capsule-tag {
+  box-sizing: border-box;
+  border-radius: 99rem;
+  width: max-content;
+  padding: 0.5rem 1rem;
+}
+
+.button-outline-primary {
+  background-color: var(--black-bg);
+}
+
+.button-secondary,
+.button-primary,
+.button.button-primary {
+  color: var(--black-bg);
+}
+
+input {
+  accent-color: var(--primay-color);
+  color: var(--white);
+}
+
+.card-shadow {
+  box-shadow: var(--primay-color);
+}
+
+.icon-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: inherit;
+}
+
+.icon-button:hover {
+  transform: scale(1.07);
+}
