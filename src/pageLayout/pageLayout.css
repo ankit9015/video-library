@@ -41,21 +41,20 @@
 /* main-------------------- */
 .main--grid {
   padding: 5px 5% 5%;
-
   display: grid;
   gap: 5px;
-  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
-  font-size: large;
+}
+
+@media screen and (min-width: 500px) {
+  .main--grid {
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  }
 }
 
 @media screen and (max-width: 1250px) {
   .sidebar__nav-button > p {
     display: none;
-  }
-
-  .main--grid {
-    padding: 0 5px;
   }
 
   .sidebar {
@@ -64,11 +63,6 @@
 
   .sidebar:hover .sidebar__nav-button > * {
     display: block;
-  }
-}
-@media screen and (max-width: 1000px) {
-  .main--grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -93,12 +87,6 @@
   }
 }
 
-@media screen and (max-width: 700px) {
-  .main--grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media screen and (max-width: 500px) {
   .header__search-show-button {
     display: block;
@@ -116,8 +104,10 @@
     display: block;
     position: fixed;
   }
+}
 
+@media screen and (max-width: 500px) {
   .main--grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1;
   }
 }

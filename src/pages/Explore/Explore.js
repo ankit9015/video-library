@@ -14,7 +14,6 @@ function Explore() {
       }
     })();
   }, []);
-  console.log(videoList);
   return (
     <div className="home main--grid">
       {videoList &&
@@ -23,6 +22,8 @@ function Explore() {
             variant="video-card"
             key={item._id}
             img={`https://img.youtube.com/vi/${item._id}/maxresdefault.jpg`}
+            link={`https://youtu.be/${item._id}`}
+            title={item.title}
           />
         ))}
     </div>

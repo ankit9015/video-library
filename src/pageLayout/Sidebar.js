@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import {
   BiLike,
+  MdExplore,
   MdHistory,
   MdHome,
   MdOutlineWatchLater,
@@ -35,7 +36,7 @@ function Sidebar(props) {
         to="/explore"
         className="sidebar__nav-button no-link m-xs flex-row gap-5 flex-align-center"
       >
-        <MdHome className="text-lg" />
+        <MdExplore className="text-lg" />
         <p>Explore</p>
       </NavLink>
 

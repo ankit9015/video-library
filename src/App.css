@@ -10,6 +10,7 @@ html {
   --primary-color: #40e967;
   --secondary-color: #48c5f6;
   --white: rgb(255, 255, 255);
+  --dark-black: rgb(0, 0, 0);
   --translucent-white: rgba(255, 255, 255, 0.31);
   --translucent-gray: rgba(51, 53, 52, 0.61);
 }

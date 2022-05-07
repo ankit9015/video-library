@@ -1,5 +1,7 @@
 .category-card {
   background-color: var(--dark-gray);
+  width: 35rem;
+  max-width: 90%;
   min-height: 10rem;
   position: relative;
   padding: 0;
@@ -34,6 +36,7 @@
   width: 100%;
   height: auto;
   max-height: 100%;
+  border-radius: 10px;
 }
 
 .category-card .card__media {
@@ -59,4 +62,10 @@
   height: 1em;
   border-radius: 50%;
   color: var(--black);
+}
+
+@media screen and (max-width: 300px) {
+  .video-card {
+    width: 25rem;
+  }
 }

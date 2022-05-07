@@ -6,38 +6,27 @@
   margin: 10px;
   justify-self: center;
   align-self: center;
-  width: 90%;
-  height: 25vw;
+  width: 30rem;
+  max-width: 90%;
+  height: 40rem;
 }
 
 .video-card .card__media-container {
   height: 60%;
   position: relative;
+  background-color: var(--dark-black);
+  border-radius: 10px;
 }
 
-@media screen and (max-width: 1000px) {
-  .video-card {
-    height: 33vw;
-  }
+.video-card__buttons {
+  display: flex;
+  gap: 20px;
+  margin: 10px auto 5px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 300px) {
   .video-card {
-    /* width: 50vw; */
-    height: 55vw;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .video-card {
-    width: 70vw;
-    height: 75vw;
-  }
-}
-
-@media screen and (max-width: 370px) {
-  .video-card {
-    width: 85vw;
-    height: 95vw;
+    width: 25rem;
+    height: 35rem;
   }
 }

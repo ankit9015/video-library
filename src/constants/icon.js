@@ -10,6 +10,7 @@ import {
   MdSettings,
   MdOutlinePlayCircle,
   MdExplore,
+  MdPlaylistAdd,
 } from "react-icons/md";
 
 import {
@@ -40,4 +41,5 @@ export {
   MdPlaylistPlay,
   MdSettings,
   MdExplore,
+  MdPlaylistAdd,
 };
