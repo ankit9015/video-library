@@ -63,6 +63,7 @@ function VideoCard(props) {
               contentWidth / (contentWidth > 199 ? 5 : 6)
             )}
           </h4>
+          <p className="text-sm m-xs">{props.creator}</p>
         </div>
       </div>
     </div>

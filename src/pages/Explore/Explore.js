@@ -28,6 +28,7 @@ function Explore() {
             img={`https://img.youtube.com/vi/${item._id}/maxresdefault.jpg`}
             link={`https://youtu.be/${item._id}`}
             title={item.title}
+            creator={item.creator}
           />
         ))}
     </div>

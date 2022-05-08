@@ -2,7 +2,6 @@
   box-sizing: border-box;
   border-radius: 99rem;
   width: max-content;
-  padding: 1px 5px;
 }
 
 .button-outline-primary {
@@ -41,6 +40,10 @@ input {
 
 .button {
   margin: 0;
+}
+
+.text-sm {
+  font-size: 1.2rem;
 }
 
 .button:hover {
