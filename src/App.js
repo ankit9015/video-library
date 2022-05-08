@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./App.css";
 import "./utility/utility.css";
-import "./constants/utility.css";
 import { Header, Main, Sidebar } from "./pageLayout";
 import { useLocation } from "react-router-dom";
 

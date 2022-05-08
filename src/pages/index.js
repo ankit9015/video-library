@@ -7,6 +7,7 @@ import WatchLater from "./WatchLater/WatchLater";
 import Settings from "./Settings/Settings";
 import Playlist from "./Playlist/Playlist";
 import Explore from "./Explore/Explore";
+import Watch from "./Watch/Watch";
 
 export {
   Login,
@@ -18,4 +19,5 @@ export {
   Settings,
   Playlist,
   Explore,
+  Watch,
 };

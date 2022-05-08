@@ -1,21 +1,11 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Banner from "../../components/Banner/Banner";
 import Card from "../../components/cards/Card";
+import { useVideo } from "../../context/VideoContext/VideoContext";
 import "../pages.css";
 
 function Home() {
-  const [categories, setCategories] = useState([]);
-  useEffect(() => {
-    (async () => {
-      try {
-        const { data } = await axios.get("/api/categories");
-        setCategories(data.categories);
-      } catch (err) {
-        console.error(err);
-      }
-    })();
-  }, []);
+  const { categories } = useVideo();
 
   useEffect(() => {
     document.title = "Home";
@@ -31,7 +21,7 @@ function Home() {
           gif={item.gif}
           img={item.img}
           variant="category-card"
-          className="m-xs category-card"
+          className="m-xs category-card "
         />
       ))}
       <div className="home__trending-list"></div>

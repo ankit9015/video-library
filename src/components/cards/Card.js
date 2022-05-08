@@ -22,7 +22,10 @@ function Card(props) {
         />
         <h4 className="card__title m-xs">{props.title}</h4>
       </div>
-      <div className="card__play-button icon-button flex-row flex-center text-xxl">
+      <div
+        data-tooltip={`Go to ${props.title}`}
+        className="card__play-button icon-button flex-row flex-center text-xxl tooltip-bottom-left"
+      >
         <MdOutlinePlayCircle />
       </div>
     </div>

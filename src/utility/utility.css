@@ -2,7 +2,7 @@
   box-sizing: border-box;
   border-radius: 99rem;
   width: max-content;
-  padding: 0.5rem 1rem;
+  padding: 1px 5px;
 }
 
 .button-outline-primary {
@@ -33,4 +33,45 @@ input {
 
 .icon-button:hover {
   transform: scale(1.07);
+}
+
+.cursor--pointer {
+  cursor: pointer;
+}
+
+.button {
+  margin: 0;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  box-shadow: 1px 1px 9px -1px var(--primary-color);
+}
+
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]:hover::before {
+  content: attr(data-tooltip);
+  font-size: 1.6rem;
+  line-height: normal;
+  position: absolute;
+  width: max-content;
+  background-color: var(--black2-bg);
+  color: var(--white);
+  padding: 0.25rem 1rem;
+  top: -0.5rem;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  border: 1px solid var(--primary-color);
+  max-width: 50vw;
+  overflow-x: wrap;
+}
+
+[data-tooltip].tooltip-bottom-left:hover::before {
+  top: auto;
+  bottom: -0.5rem;
+  left: -50%;
+  transform: translate(-50%, 100%);
 }

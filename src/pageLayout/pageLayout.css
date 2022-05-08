@@ -48,7 +48,7 @@
 
 @media screen and (min-width: 500px) {
   .main--grid {
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   }
 }
 

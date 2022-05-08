@@ -7,18 +7,20 @@ import {
   MdOutlineWatchLater,
   MdPlaylistAdd,
 } from "../../constants/icon";
+import { useNavigate } from "react-router-dom";
 
 function VideoCard(props) {
-  const cardRef = useRef();
-  const [cardWidth, setCardWidth] = useState(0);
+  const contentRef = useRef();
+  const [contentWidth, setContentWidth] = useState(0);
+  const navigate = useNavigate();
 
   const handleResize = () => {
-    setCardWidth(cardRef.current.offsetWidth);
+    setContentWidth(contentRef.current.offsetWidth);
   };
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
-    setCardWidth(cardRef.current.offsetWidth);
+    setContentWidth(contentRef.current.offsetWidth);
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -27,28 +29,44 @@ function VideoCard(props) {
 
   return (
     <div
-      ref={cardRef}
-      className={`card text-md p-xs flex-column ${props.variant ?? ""} ${
-        props.className ?? ""
-      }`}
+      className={`card video-card text-md p-xs ${
+        props.variant === "vertical" ? "flex-column" : "flex-row"
+      } ${props.className ?? ""}`}
     >
-      <div className="card__media-container flex-row flex-center">
+      <div
+        className="card__media-container flex-row flex-center cursor--pointer"
+        onClick={() => navigate(`../watch/${props.videoId}`)}
+      >
         <img className="card__media" src={`${props.img}`} alt="category-gif" />
       </div>
-      <div className="video-card__buttons text-xl">
-        <BiLike />
-        <MdOutlineWatchLater />
-        <MdPlaylistAdd />
-      </div>
-      <div className="card__content p-xs">
-        <h4 className="card__title">
-          {/* trucateString is taking the second parameter charCount by experimaentally 
-          observing different denominator values and card width condition */}
-          {truncateString(props.title, cardWidth / (cardWidth > 220 ? 5 : 4))}
-        </h4>
-        <a className="button-primary" href={`${props.link}`}>
-          Watch Later
-        </a>
+      <div className="flex-column">
+        <div className="video-card__buttons text-lg">
+          <span data-tooltip="Like">
+            <BiLike className="icon-button" />
+          </span>
+          <span data-tooltip="Watch Later">
+            <MdOutlineWatchLater className="icon-button" />
+          </span>
+          <span data-tooltip="Add to Playlist">
+            <MdPlaylistAdd className="icon-button" />
+          </span>
+        </div>
+        <div ref={contentRef} className="card__content p-xs">
+          <h4
+            className="card__title cursor--pointer"
+            onClick={() => navigate(`../watch/${props.videoId}`)}
+          >
+            {/* trucateString is taking the second parameter by experimentally 
+          observing different denominator values and content width condition */}
+            {truncateString(
+              props.title,
+              contentWidth / (contentWidth > 199 ? 5 : 6)
+            )}
+          </h4>
+          <a className="button-primary" href={`${props.link}`}>
+            Watch Later
+          </a>
+        </div>
       </div>
     </div>
   );
