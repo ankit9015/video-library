@@ -19,7 +19,6 @@ function App() {
       <Sidebar showSidebar={showSidebar} />
 
       <Main />
-      {/* <Footer /> */}
     </div>
   );
 }

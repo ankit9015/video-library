@@ -11,7 +11,6 @@ const VideoProvider = ({ children }) => {
     (async () => {
       try {
         const response = await axios.get("/api/videos");
-        // console.log(response.data.videos);
         setVideos(response.data.videos);
       } catch (err) {
         console.log(err);

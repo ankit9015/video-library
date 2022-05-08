@@ -63,9 +63,6 @@ function VideoCard(props) {
               contentWidth / (contentWidth > 199 ? 5 : 6)
             )}
           </h4>
-          <a className="button-primary" href={`${props.link}`}>
-            Watch Later
-          </a>
         </div>
       </div>
     </div>
