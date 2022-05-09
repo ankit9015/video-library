@@ -11,8 +11,9 @@ html {
   --secondary-color: #48c5f6;
   --white: rgb(255, 255, 255);
   --dark-black: rgb(0, 0, 0);
-  --translucent-white: rgba(255, 255, 255, 0.31);
-  --translucent-gray: rgba(51, 53, 52, 0.61);
+  --translucent-white: rgba(232, 228, 228, 0.297);
+  --translucent-gray: rgba(84, 86, 85, 0.405);
+  --modal-portal__bg-color: rgba(132, 127, 127, 0.064);
 }
 
 .App {
@@ -48,7 +49,7 @@ html {
 
 .sidebar {
   grid-row: 2 / 3;
-  z-index: 99;
+  z-index: 2;
   position: absolute;
   width: 15rem;
   height: calc(100% - 3.5rem);

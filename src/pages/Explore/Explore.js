@@ -12,7 +12,7 @@ function Explore() {
 
   return (
     <div className="explore main--grid">
-      <div className="explore__categories ">
+      <div className="explore__categories invisible-scroll">
         {categories.map((item) => (
           <div className="capsule-tag text-md cursor--pointer" key={item._id}>
             {item.categoryName}

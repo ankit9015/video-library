@@ -11,6 +11,7 @@ import {
   MdOutlinePlayCircle,
   MdExplore,
   MdPlaylistAdd,
+  MdClose,
 } from "react-icons/md";
 
 import {
@@ -43,4 +44,5 @@ export {
   MdSettings,
   MdExplore,
   MdPlaylistAdd,
+  MdClose,
 };

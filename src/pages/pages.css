@@ -21,12 +21,6 @@
   border-top: 2px solid var(--dark-gray);
   border-bottom: 2px solid var(--dark-gray);
   overflow-x: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.explore__categories::-webkit-scrollbar {
-  display: none;
 }
 
 .explore__categories * {

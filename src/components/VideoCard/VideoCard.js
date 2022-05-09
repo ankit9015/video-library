@@ -8,11 +8,14 @@ import {
   MdPlaylistAdd,
 } from "../../constants/icon";
 import { useNavigate } from "react-router-dom";
+import { usePlaylist } from "../../context/Playlist/PlaylistContext";
+import PlaylistModal from "../PlaylistModal/PlaylistModal";
 
 function VideoCard(props) {
   const contentRef = useRef();
   const [contentWidth, setContentWidth] = useState(0);
   const navigate = useNavigate();
+  const { setShowPlaylistModal } = usePlaylist();
 
   const handleResize = () => {
     setContentWidth(contentRef.current.offsetWidth);
@@ -28,45 +31,55 @@ function VideoCard(props) {
   }, []);
 
   return (
-    <div
-      className={`card video-card text-md p-xs ${
-        props.variant === "vertical" ? "flex-column" : "flex-row"
-      } ${props.className ?? ""}`}
-    >
+    <>
+      <PlaylistModal />
       <div
-        className="card__media-container flex-row flex-center cursor--pointer"
-        onClick={() => navigate(`../watch/${props.videoId}`)}
+        className={`card video-card text-md p-xs ${
+          props.variant === "vertical" ? "flex-column" : "flex-row"
+        } ${props.className ?? ""}`}
       >
-        <img className="card__media" src={`${props.img}`} alt="category-gif" />
-      </div>
-      <div className="flex-column">
-        <div className="video-card__buttons text-lg">
-          <span data-tooltip="Like">
-            <BiLike className="icon-button" />
-          </span>
-          <span data-tooltip="Watch Later">
-            <MdOutlineWatchLater className="icon-button" />
-          </span>
-          <span data-tooltip="Add to Playlist">
-            <MdPlaylistAdd className="icon-button" />
-          </span>
+        <div
+          className="card__media-container flex-row flex-center cursor--pointer"
+          onClick={() => navigate(`../watch/${props.videoId}`)}
+        >
+          <img
+            className="card__media"
+            src={`${props.img}`}
+            alt="category-gif"
+          />
         </div>
-        <div ref={contentRef} className="card__content p-xs">
-          <h4
-            className="card__title cursor--pointer"
-            onClick={() => navigate(`../watch/${props.videoId}`)}
-          >
-            {/* trucateString is taking the second parameter by experimentally 
+        <div className="flex-column">
+          <div className="video-card__buttons text-lg">
+            <span data-tooltip="Like">
+              <BiLike className="icon-button" />
+            </span>
+            <span data-tooltip="Watch Later">
+              <MdOutlineWatchLater className="icon-button" />
+            </span>
+            <span
+              data-tooltip="Add to Playlist"
+              onClick={() => setShowPlaylistModal(true)}
+            >
+              <MdPlaylistAdd className="icon-button" />
+            </span>
+          </div>
+          <div ref={contentRef} className="card__content p-xs">
+            <h4
+              className="card__title cursor--pointer"
+              onClick={() => navigate(`../watch/${props.videoId}`)}
+            >
+              {/* trucateString is taking the second parameter by experimentally 
           observing different denominator values and content width condition */}
-            {truncateString(
-              props.title,
-              contentWidth / (contentWidth > 199 ? 5 : 6)
-            )}
-          </h4>
-          <p className="text-sm m-xs">{props.creator}</p>
+              {truncateString(
+                props.title,
+                contentWidth / (contentWidth > 199 ? 5 : 6)
+              )}
+            </h4>
+            <p className="text-sm m-xs">{props.creator}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -51,6 +51,15 @@ input {
   box-shadow: 1px 1px 9px -1px var(--primary-color);
 }
 
+.invisible-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.invisible-scroll::-webkit-scrollbar {
+  display: none;
+}
+
 [data-tooltip] {
   position: relative;
 }
