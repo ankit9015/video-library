@@ -1,0 +1,68 @@
+.playlist-card {
+  background-color: var(--black);
+  position: relative;
+  padding: 0;
+  border-radius: 10px;
+  margin: 5px;
+  justify-self: center;
+  align-self: center;
+  max-width: calc(100% - 10px);
+  width: 30rem;
+  height: 30rem;
+}
+
+.playlist-card .card__content {
+  height: 40%;
+  background-color: var(--black);
+  position: relative;
+  top: -15%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  max-width: 100%;
+}
+
+.playlist-card .card__media-container {
+  height: 70%;
+  background-color: var(--dark-black);
+  border-radius: 10px;
+}
+
+.playlist-card .card__media {
+  border-radius: 0;
+}
+
+.playlist-card__buttons {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1rem;
+}
+
+.playlist-card__media-overlay {
+  width: 10rem;
+  z-index: 2;
+  height: 55%;
+  top: 0;
+  right: 0;
+  position: absolute;
+  background-color: var(--translucent-gray);
+}
+
+.playlist--delete-modal {
+  width: 50rem;
+  max-width: 100%;
+  background-color: inherit;
+}
+
+@media screen and (max-width: 300px) {
+  .playlist-card.flex-column {
+    width: 25rem;
+    height: 35rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .playlist-card.flex-row {
+    width: 30rem;
+    height: 20rem;
+  }
+}

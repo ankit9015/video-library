@@ -1,6 +1,6 @@
 import axios from "axios";
 
-function addPlaylistService(playlist, encodedToken) {
+function createPlaylistService(playlist, encodedToken) {
   try {
     const response = axios.post(
       "/api/user/playlists",
@@ -19,4 +19,4 @@ function addPlaylistService(playlist, encodedToken) {
   }
 }
 
-export default addPlaylistService;
+export default createPlaylistService;

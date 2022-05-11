@@ -3,15 +3,23 @@ const playlistReducer = (state, action) => {
   console.log(payload);
   switch (type) {
     case "ADD_PLAYLIST":
-      break;
+      return [...payload];
     case "REMOVE_PLAYLIST":
-      break;
+      return [...payload];
     case "ADD_TO_PLAYLIST":
-      break;
+      return [
+        ...state.map((playlist) =>
+          playlist._id === payload._id ? payload : playlist
+        ),
+      ];
     case "REMOVE_FROM_PLAYLIST":
-      break;
+      return [
+        ...state.map((playlist) =>
+          playlist._id === payload._id ? payload : playlist
+        ),
+      ];
     default:
-      break;
+      return state;
   }
 };
 

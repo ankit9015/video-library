@@ -1,5 +1,12 @@
-import { PlaylistProvider } from "./Playlist/PlaylistContext";
-import { AuthProvider } from "./AuthContext/AuthContext";
-import { VideoProvider } from "./VideoContext/VideoContext";
+import { PlaylistProvider, usePlaylist } from "./Playlist/PlaylistContext";
+import { AuthProvider, useAuth } from "./AuthContext/AuthContext";
+import { VideoProvider, useVideo } from "./VideoContext/VideoContext";
 
-export { PlaylistProvider, AuthProvider, VideoProvider };
+export {
+  PlaylistProvider,
+  AuthProvider,
+  VideoProvider,
+  useAuth,
+  usePlaylist,
+  useVideo,
+};

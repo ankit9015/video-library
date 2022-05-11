@@ -22,11 +22,12 @@ import {
   FaSearch,
 } from "react-icons/fa";
 
-import { BiLike, BiDislike } from "react-icons/bi";
+import { BiLike, BiDislike, BiTrash } from "react-icons/bi";
 
 export {
   BiLike,
   BiDislike,
+  BiTrash,
   FaRegUserCircle,
   FaSearch,
   FaFilter,

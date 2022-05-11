@@ -11,15 +11,21 @@
   height: 100%;
 }
 
+.playlist-header,
 .explore__categories {
   grid-column: 1 / -1;
   display: flex;
-  margin-top: 10px;
+  margin: 10px 0;
   gap: 20px;
   height: 6rem;
   align-items: center;
-  border-top: 2px solid var(--dark-gray);
+
   border-bottom: 2px solid var(--dark-gray);
+  padding: 0 20px;
+}
+
+.explore__categories {
+  border-top: 2px solid var(--dark-gray);
   overflow-x: scroll;
 }
 
@@ -28,6 +34,14 @@
   color: var(--white);
   padding: 5px 15px;
   min-width: fit-content;
+}
+
+.playlist-header {
+  justify-content: flex-end;
+}
+
+.MockAPI * {
+  color: black;
 }
 
 @media screen and (max-width: 1000px) {

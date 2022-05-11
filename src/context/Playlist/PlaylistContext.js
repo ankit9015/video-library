@@ -1,20 +1,44 @@
-import { createContext, useContext, useReducer, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useReducer,
+  useState,
+  useEffect,
+} from "react";
+
 import { playlistReducer } from "./playListReducer";
+import { useAuth } from "../AuthContext/AuthContext";
+import { getPlaylistsService } from "../../service";
 
 const PlaylistContext = createContext();
 
 const PlaylistProvider = ({ children }) => {
   const [playlistsState, playlistsDispatch] = useReducer(playlistReducer, []);
-  const [showPlaylistModal, setShowPlaylistModal] = useState(false);
-  console.log(showPlaylistModal);
+
+  const { authState } = useAuth();
+  const [playlists, setPlaylists] = useState([]);
+  console.log(playlistsState);
+  useEffect(() => {
+    if (authState.isLoggedIn) {
+      (async () => {
+        try {
+          const { data } = await getPlaylistsService(authState.authToken);
+          setPlaylists(data.playlists);
+        } catch (error) {
+          console.error(error);
+        }
+      })();
+    } else {
+      setPlaylists([]);
+    }
+  }, [authState]);
 
   return (
     <PlaylistContext.Provider
       value={{
         playlistsState,
         playlistsDispatch,
-        showPlaylistModal,
-        setShowPlaylistModal,
+        playlists,
       }}
     >
       {children}

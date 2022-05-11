@@ -7,12 +7,9 @@ function Modal({ open, children, close }) {
   if (!open) return null;
   return ReactDOM.createPortal(
     <>
-      <div className="modal__underlay" onClick={() => close(false)} />
+      <div className="modal__underlay" onClick={close} />
       <div className="modal flex-column ">
-        <div
-          className="modal__close text-md icon-button"
-          onClick={() => close(false)}
-        >
+        <div className="modal__close text-md icon-button" onClick={close}>
           <MdClose className="text-lg" />
         </div>
         {children}

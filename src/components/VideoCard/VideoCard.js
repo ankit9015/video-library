@@ -8,14 +8,13 @@ import {
   MdPlaylistAdd,
 } from "../../constants/icon";
 import { useNavigate } from "react-router-dom";
-import { usePlaylist } from "../../context/Playlist/PlaylistContext";
 import PlaylistModal from "../PlaylistModal/PlaylistModal";
 
 function VideoCard(props) {
   const contentRef = useRef();
   const [contentWidth, setContentWidth] = useState(0);
   const navigate = useNavigate();
-  const { setShowPlaylistModal } = usePlaylist();
+  const [showPlaylistModal, setShowPlaylistModal] = useState(false);
 
   const handleResize = () => {
     setContentWidth(contentRef.current.offsetWidth);
@@ -32,7 +31,13 @@ function VideoCard(props) {
 
   return (
     <>
-      <PlaylistModal />
+      {showPlaylistModal && (
+        <PlaylistModal
+          video={props.video}
+          showPlaylistModal={showPlaylistModal}
+          setShowPlaylistModal={setShowPlaylistModal}
+        />
+      )}
       <div
         className={`card video-card text-md p-xs ${
           props.variant === "vertical" ? "flex-column" : "flex-row"
