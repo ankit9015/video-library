@@ -93,7 +93,7 @@ function PlaylistCard(props) {
         </div>
         <h4
           className="card__title cursor--pointer"
-          // onClick={() => navigate(`../watch/${props.videoId}`)}
+          onClick={() => navigate(`../playlist/${playlist._id}`)}
         >
           {/* trucateString is taking the second parameter by experimentally 
         observing different denominator values and content width condition */}
@@ -102,7 +102,6 @@ function PlaylistCard(props) {
             contentWidth / (contentWidth > 199 ? 5 : 6)
           )}
         </h4>
-        {/* <p className="text-sm m-xs">{props.creator}</p> */}
       </div>
     </div>
   );
