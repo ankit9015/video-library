@@ -6,7 +6,7 @@ import "../pages.css";
 function Playlist() {
   const { playlistsState } = usePlaylist();
   const [showPlaylistModal, setShowPlaylistModal] = useState(false);
-  console.log(playlistsState);
+
   return (
     <div className="playlist-page main--grid">
       <div className="playlist-header">

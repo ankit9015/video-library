@@ -23,7 +23,6 @@ function CreatePlaylist(props) {
   const createButtonHandler = () => {
     if (newPlaylist.title !== "") {
       createPlaylist(newPlaylist);
-      console.log("in");
     }
     props.toggleCreate(false);
   };

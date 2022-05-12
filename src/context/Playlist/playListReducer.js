@@ -1,6 +1,6 @@
 const playlistReducer = (state, action) => {
   const { type, payload } = action;
-  console.log(payload);
+
   switch (type) {
     case "ADD_PLAYLIST":
       return [...payload];

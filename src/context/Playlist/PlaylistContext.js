@@ -17,7 +17,7 @@ const PlaylistProvider = ({ children }) => {
 
   const { authState } = useAuth();
   const [playlists, setPlaylists] = useState([]);
-  console.log(playlistsState);
+
   useEffect(() => {
     if (authState.isLoggedIn) {
       (async () => {

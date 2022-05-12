@@ -10,7 +10,7 @@ async function removeFromPlaylistService(playlistId, videoId, encodedToken) {
         },
       }
     );
-    console.log(response);
+
     return response;
   } catch (error) {
     console.log(error);
