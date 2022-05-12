@@ -1,5 +1,7 @@
 .category-card {
   background-color: var(--dark-gray);
+  width: 35rem;
+  max-width: 90%;
   min-height: 10rem;
   position: relative;
   padding: 0;
@@ -7,7 +9,7 @@
   margin: 2px 10px;
 }
 
-.card__content {
+.category-card .card__content {
   position: absolute;
   z-index: 2;
   width: 100%;
@@ -21,19 +23,23 @@
   position: absolute;
 }
 
-.card__title {
+.card__media-container {
+  background-color: var(--black-bg);
+}
+
+.category-card .card__title {
   font-weight: 600;
   font-size: 2rem;
-  z-index: 1;
 }
 .card__content-background,
 .card__media {
   width: 100%;
   height: auto;
+  max-height: 100%;
   border-radius: 10px;
 }
 
-.card__media {
+.category-card .card__media {
   transform: scale(0);
 }
 
@@ -46,7 +52,7 @@
   transform-origin: 0 50%;
 }
 
-.card__play-button {
+.category-card .card__play-button {
   position: absolute;
   z-index: 9;
   background-color: var(--primary-color);
@@ -56,4 +62,10 @@
   height: 1em;
   border-radius: 50%;
   color: var(--black);
+}
+
+@media screen and (max-width: 300px) {
+  .video-card {
+    width: 25rem;
+  }
 }

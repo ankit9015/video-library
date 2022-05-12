@@ -9,6 +9,8 @@ import {
   MdPlaylistPlay,
   MdSettings,
   MdOutlinePlayCircle,
+  MdExplore,
+  MdPlaylistAdd,
 } from "react-icons/md";
 
 import {
@@ -19,10 +21,11 @@ import {
   FaSearch,
 } from "react-icons/fa";
 
-import { BiLike } from "react-icons/bi";
+import { BiLike, BiDislike } from "react-icons/bi";
 
 export {
   BiLike,
+  BiDislike,
   FaRegUserCircle,
   FaSearch,
   FaFilter,
@@ -38,4 +41,6 @@ export {
   MdMenu,
   MdPlaylistPlay,
   MdSettings,
+  MdExplore,
+  MdPlaylistAdd,
 };

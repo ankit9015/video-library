@@ -11,7 +11,9 @@ import {
   Playlist,
   Settings,
   Signup,
+  Explore,
   WatchLater,
+  Watch,
 } from "../pages";
 import MockAPI from "../pages/Mockapi";
 
@@ -37,6 +39,8 @@ function Main() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/watch/:videoId" element={<Watch />} />
         <Route
           path="/history"
           element={
@@ -72,6 +76,7 @@ function Main() {
         <Route path="/settings" element={<Settings />} />
 
         <Route path="/mock-api" element={<MockAPI />} />
+        <Route path="*" element={<div>Page not found</div>} />
       </Routes>
     </div>
   );

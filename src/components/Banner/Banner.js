@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Banner.css";
 import { truncateString } from "../../utility";
 import Slider from "react-slick";
@@ -22,11 +23,13 @@ function Banner() {
     className: "slider",
   };
 
+  const navigate = useNavigate();
+
   return (
     <div className="banner">
       <Slider {...settings}>
         {bannerImageDb.map((item) => (
-          <div className="banner__slider">
+          <div key={item.id} className="banner__slider">
             <div className="banner__img-container">
               <picture>
                 <source
@@ -53,8 +56,15 @@ function Banner() {
               <div className="banner__description text-md">
                 {truncateString(BANNER_DESCRIPTION, 120)}
               </div>
-              <button className="banner__button text-md">Play</button>
-              <button className="banner__button text-md">Watch Later</button>
+              <button
+                className="banner__button text-md cursor--pointer"
+                onClick={() => navigate(`../watch/${item.videoId}`)}
+              >
+                Play
+              </button>
+              <button className="banner__button text-md cursor--pointer">
+                Watch Later
+              </button>
             </div>
           </div>
         ))}

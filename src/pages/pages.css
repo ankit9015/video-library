@@ -11,6 +11,31 @@
   height: 100%;
 }
 
+.explore__categories {
+  grid-column: 1 / -1;
+  display: flex;
+  margin-top: 10px;
+  gap: 20px;
+  height: 6rem;
+  align-items: center;
+  border-top: 2px solid var(--dark-gray);
+  border-bottom: 2px solid var(--dark-gray);
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.explore__categories::-webkit-scrollbar {
+  display: none;
+}
+
+.explore__categories * {
+  background-color: var(--dark-gray);
+  color: var(--white);
+  padding: 5px 15px;
+  min-width: fit-content;
+}
+
 @media screen and (max-width: 1000px) {
   .login__card,
   .signup__card {

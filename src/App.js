@@ -1,8 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import "./utility/utility.css";
-import "./constants/utility.css";
-import { Footer, Header, Main, Sidebar } from "./pageLayout";
+import { Header, Main, Sidebar } from "./pageLayout";
 import { useLocation } from "react-router-dom";
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
       <Sidebar showSidebar={showSidebar} />
 
       <Main />
-      <Footer />
     </div>
   );
 }

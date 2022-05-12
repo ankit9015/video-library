@@ -10,6 +10,7 @@ html {
   --primary-color: #40e967;
   --secondary-color: #48c5f6;
   --white: rgb(255, 255, 255);
+  --dark-black: rgb(0, 0, 0);
   --translucent-white: rgba(255, 255, 255, 0.31);
   --translucent-gray: rgba(51, 53, 52, 0.61);
 }
@@ -17,9 +18,10 @@ html {
 .App {
   width: 100%;
   max-width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background-color: var(--black-bg);
   color: var(--white);
+  position: relative;
 }
 
 .grid-container {
@@ -39,6 +41,9 @@ html {
 
 .main {
   grid-row: 2 / 3;
+  overflow-y: scroll;
+  height: 100%;
+  background-color: var(--black2-bg);
 }
 
 .sidebar {
@@ -46,6 +51,7 @@ html {
   z-index: 99;
   position: absolute;
   width: 15rem;
+  height: calc(100% - 3.5rem);
 }
 
 .footer {
@@ -61,6 +67,7 @@ html {
 
   .sidebar {
     position: relative;
+    height: auto;
   }
 
   .grid-container.form-page {
@@ -83,6 +90,7 @@ html {
 
   .sidebar {
     position: relative;
+    height: auto;
   }
 
   .grid-container.form-page {
@@ -94,7 +102,7 @@ html {
   }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 490px) {
   html {
     font-size: 50%;
   }

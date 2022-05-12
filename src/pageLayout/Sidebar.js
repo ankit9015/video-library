@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import {
   BiLike,
+  MdExplore,
   MdHistory,
   MdHome,
   MdOutlineWatchLater,
@@ -11,7 +12,7 @@ import {
 
 function Sidebar(props) {
   const getActiveLinkStyle = ({ isActive }) => ({
-    color: isActive ? "var(--secondary-color)" : "",
+    color: isActive ? "var(--primary-color)" : "",
     fontWeight: "bold",
   });
 
@@ -28,6 +29,15 @@ function Sidebar(props) {
       >
         <MdHome className="text-lg" />
         <p>Home</p>
+      </NavLink>
+
+      <NavLink
+        style={getActiveLinkStyle}
+        to="/explore"
+        className="sidebar__nav-button no-link m-xs flex-row gap-5 flex-align-center"
+      >
+        <MdExplore className="text-lg" />
+        <p>Explore</p>
       </NavLink>
 
       <NavLink
