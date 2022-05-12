@@ -7,13 +7,16 @@ import {
   MdOutlineWatchLater,
   MdPlaylistAdd,
 } from "../../constants/icon";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import PlaylistModal from "../PlaylistModal/PlaylistModal";
+import { useAuth } from "../../context";
 
 function VideoCard(props) {
   const contentRef = useRef();
+  const { authState } = useAuth();
   const [contentWidth, setContentWidth] = useState(0);
   const navigate = useNavigate();
+  const location = useLocation();
   const [showPlaylistModal, setShowPlaylistModal] = useState(false);
 
   const handleResize = () => {
@@ -63,7 +66,18 @@ function VideoCard(props) {
             </span>
             <span
               data-tooltip="Add to Playlist"
-              onClick={() => setShowPlaylistModal(true)}
+              onClick={() => {
+                if (authState.isLoggedIn) {
+                  setShowPlaylistModal(true);
+                } else {
+                  navigate(
+                    "../login",
+                    { state: { from: location } },
+                    { replace: true }
+                  );
+                  // <Navigate to="/login" state={{ from: location }} replace />;
+                }
+              }}
             >
               <MdPlaylistAdd className="icon-button" />
             </span>
