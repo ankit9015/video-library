@@ -21,15 +21,7 @@ function Explore() {
       </div>
       {videos &&
         videos.map((item) => (
-          <VideoCard
-            variant="vertical"
-            key={item._id}
-            video={item}
-            img={`https://img.youtube.com/vi/${item._id}/maxresdefault.jpg`}
-            link={`https://youtu.be/${item._id}`}
-            title={item.title}
-            creator={item.creator}
-          />
+          <VideoCard variant="vertical" key={item._id} video={item} />
         ))}
     </div>
   );

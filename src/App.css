@@ -12,7 +12,8 @@ html {
   --white: rgb(255, 255, 255);
   --dark-black: rgb(0, 0, 0);
   --translucent-white: rgba(232, 228, 228, 0.434);
-  --translucent-gray: rgba(84, 86, 85, 0.553);
+  --translucent-gray: rgba(24, 23, 23, 0.51);
+  --modal-black-underlay: rgba(32, 32, 32, 0.875);
 }
 
 .App {
