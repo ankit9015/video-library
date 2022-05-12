@@ -5,6 +5,7 @@
   margin: 5rem 0;
 }
 
+.playlist-detail,
 .login__main,
 .signup__main {
   width: 100%;
@@ -12,6 +13,7 @@
 }
 
 .playlist-header,
+.playlist-detail__info,
 .explore__categories {
   grid-column: 1 / -1;
   display: flex;
@@ -40,6 +42,13 @@
   justify-content: flex-end;
 }
 
+.playlist-detail__info {
+  height: auto;
+  border-top: 2px solid var(--dark-gray);
+  align-items: flex-start;
+  margin-top: 5rem;
+}
+
 .MockAPI * {
   color: black;
 }
@@ -56,6 +65,11 @@
   .signup__card {
     max-width: 55%;
   }
+
+  .playlist-detail__info {
+    padding: 1rem;
+    margin-top: 3rem;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -69,5 +83,10 @@
     justify-self: center;
     align-self: center;
     margin-top: 10px;
+  }
+
+  .playlist-detail__info {
+    padding: 1rem;
+    margin-top: 5rem;
   }
 }

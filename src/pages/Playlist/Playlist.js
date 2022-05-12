@@ -26,7 +26,9 @@ function Playlist() {
         )}
       </div>
       {playlistsState &&
-        playlistsState.map((item) => <PlaylistCard playlist={item} />)}
+        playlistsState.map((item) => (
+          <PlaylistCard key={item._id} playlist={item} />
+        ))}
     </div>
   );
 }
