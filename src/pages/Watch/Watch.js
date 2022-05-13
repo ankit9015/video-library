@@ -11,12 +11,13 @@ import {
 import { useVideo } from "../../context/VideoContext/VideoContext";
 import { randomElementsFromArray } from "../../utility";
 
-import { useAuth } from "../../context";
+import { useAuth, useHistory } from "../../context";
 import { PlaylistModal, VideoCard } from "../../components";
 
 function Watch() {
   const { videoId } = useParams();
   const { videos } = useVideo();
+  const { historyDispatch, historyState } = useHistory();
   const suggestedVideos = randomElementsFromArray(videos, 6);
   const location = useLocation();
   const navigate = useNavigate();
@@ -37,6 +38,14 @@ function Watch() {
   }, [setWindowWidth]);
 
   const currVideo = videos.filter((item) => item._id === videoId)[0];
+
+  useEffect(() => {
+    if (authState.isLoggedIn && currVideo) {
+      historyDispatch({ type: "ADD_TO_HISTORY", payload: currVideo });
+    }
+  }, [authState.isLoggedIn, currVideo, historyDispatch]);
+
+  console.log(historyState);
 
   return (
     <>
@@ -94,7 +103,9 @@ function Watch() {
               Category Tags:
               {currVideo &&
                 currVideo["categoryTags"].map((item) => (
-                  <div className="capsule-tag text-md">{item}</div>
+                  <div key={item._id} className="capsule-tag text-md">
+                    {item}
+                  </div>
                 ))}
             </div>
             <p className="text-md m-xs">

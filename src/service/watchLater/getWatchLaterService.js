@@ -1,7 +1,5 @@
 import axios from "axios";
 
-import React from "react";
-
 function getWatchLaterService(encodedToken) {
   try {
     const response = axios.get("/api/user/watchlater", {
