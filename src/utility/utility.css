@@ -84,6 +84,6 @@ input {
 [data-tooltip].tooltip-bottom-left:hover::before {
   top: auto;
   bottom: -0.5rem;
-  left: -50%;
-  transform: translate(-50%, 100%);
+  transform: translate(-100%, 100%);
+  transform-origin: 100% 50%;
 }

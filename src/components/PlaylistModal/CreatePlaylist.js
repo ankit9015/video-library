@@ -10,7 +10,10 @@ function CreatePlaylist(props) {
 
   const { authState } = useAuth();
 
-  const { playlistsDispatch } = usePlaylist();
+  const { playlistsState, playlistsDispatch } = usePlaylist();
+  const uniquePlaylist = playlistsState
+    ? playlistsState.map((item) => item.title)
+    : [];
 
   const createPlaylist = async (newPlaylist) => {
     const { data } = await createPlaylistService(
@@ -21,7 +24,10 @@ function CreatePlaylist(props) {
   };
 
   const createButtonHandler = () => {
-    if (newPlaylist.title !== "") {
+    if (
+      newPlaylist.title !== "" &&
+      !uniquePlaylist.includes(newPlaylist.title)
+    ) {
       createPlaylist(newPlaylist);
     }
     props.toggleCreate(false);

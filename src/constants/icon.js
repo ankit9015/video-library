@@ -22,6 +22,7 @@ import {
   FaSearch,
 } from "react-icons/fa";
 
+import { CgPlayListRemove } from "react-icons/cg";
 import { BiLike, BiDislike, BiTrash } from "react-icons/bi";
 
 export {
@@ -46,4 +47,5 @@ export {
   MdExplore,
   MdPlaylistAdd,
   MdClose,
+  CgPlayListRemove,
 };

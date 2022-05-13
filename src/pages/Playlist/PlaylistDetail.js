@@ -1,12 +1,23 @@
 // import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { VideoCard } from "../../components";
-import { usePlaylist } from "../../context";
+import { useAuth, usePlaylist } from "../../context";
+import { removeFromPlaylistService } from "../../service";
 
 function PlaylistDetail() {
   const { playlistId } = useParams();
+  const { authState } = useAuth();
 
-  const { playlistsState } = usePlaylist();
+  const { playlistsState, playlistsDispatch } = usePlaylist();
+
+  const removeFromPlaylist = async (videoId) => {
+    const { data } = await removeFromPlaylistService(
+      playlistId,
+      videoId,
+      authState.authToken
+    );
+    playlistsDispatch({ type: "REMOVE_FROM_PLAYLIST", payload: data.playlist });
+  };
 
   const playlist =
     playlistsState.filter((playlist) => playlist._id === playlistId)?.[0] ?? {};
@@ -26,10 +37,7 @@ function PlaylistDetail() {
             key={item._id}
             variant="vertical"
             video={item}
-            img={`https://img.youtube.com/vi/${item._id}/maxresdefault.jpg`}
-            link={`https://youtu.be/${item._id}`}
-            title={item.title}
-            creator={item.creator}
+            removeFromplaylist={() => removeFromPlaylist(item._id)}
           />
         ))}
     </div>
