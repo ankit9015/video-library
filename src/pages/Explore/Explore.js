@@ -12,7 +12,7 @@ function Explore() {
 
   return (
     <div className="explore main--grid">
-      <div className="explore__categories ">
+      <div className="explore__categories invisible-scroll">
         {categories.map((item) => (
           <div className="capsule-tag text-md cursor--pointer" key={item._id}>
             {item.categoryName}
@@ -21,15 +21,7 @@ function Explore() {
       </div>
       {videos &&
         videos.map((item) => (
-          <VideoCard
-            variant="vertical"
-            key={item._id}
-            videoId={item._id}
-            img={`https://img.youtube.com/vi/${item._id}/maxresdefault.jpg`}
-            link={`https://youtu.be/${item._id}`}
-            title={item.title}
-            creator={item.creator}
-          />
+          <VideoCard variant="vertical" key={item._id} video={item} />
         ))}
     </div>
   );

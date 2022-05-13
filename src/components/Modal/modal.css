@@ -1,0 +1,27 @@
+.modal {
+  max-width: 80%;
+  position: fixed;
+  background-color: var(--black-bg);
+  z-index: 99;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--white);
+  backdrop-filter: blur(8px);
+  padding: 10px;
+}
+
+.modal__close {
+  display: inline;
+  margin: 5px 5px 5px auto;
+}
+
+.modal__underlay {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--modal-black-underlay);
+}

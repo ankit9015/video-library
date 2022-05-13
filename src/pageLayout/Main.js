@@ -14,6 +14,7 @@ import {
   Explore,
   WatchLater,
   Watch,
+  PlaylistDetail,
 } from "../pages";
 import MockAPI from "../pages/Mockapi";
 
@@ -70,6 +71,14 @@ function Main() {
           element={
             <PrivateRoute>
               <Playlist />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/playlist/:playlistId"
+          element={
+            <PrivateRoute>
+              <PlaylistDetail />
             </PrivateRoute>
           }
         />

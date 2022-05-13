@@ -1,0 +1,38 @@
+.playlist-modal__suggestions {
+  border-bottom: 2px solid var(--white);
+  border-top: 2px solid var(--white);
+  flex: 2;
+  overflow-y: scroll;
+}
+
+.playlist-modal {
+  height: 36rem;
+  width: 25rem;
+}
+
+.playlist-modal .create-button {
+  margin: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.playlist-modal__new-playlist {
+  max-width: calc(100%-20px);
+}
+
+.playlist-modal__new-playlist input,
+.playlist-modal__new-playlist textarea {
+  margin: 0.5rem auto 1rem;
+  width: 90%;
+}
+
+.playlist-modal__new-playlist textarea {
+  height: 15rem;
+}
+
+.playlist-modal__title {
+  border-bottom: 2px solid var(--white);
+}
+
+.available-playlists {
+  color: var(--white);
+}

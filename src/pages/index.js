@@ -8,6 +8,7 @@ import Settings from "./Settings/Settings";
 import Playlist from "./Playlist/Playlist";
 import Explore from "./Explore/Explore";
 import Watch from "./Watch/Watch";
+import PlaylistDetail from "./Playlist/PlaylistDetail";
 
 export {
   Login,
@@ -20,4 +21,5 @@ export {
   Playlist,
   Explore,
   Watch,
+  PlaylistDetail,
 };
