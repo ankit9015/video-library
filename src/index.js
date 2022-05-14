@@ -10,6 +10,7 @@ import {
   LikesProvider,
   PlaylistProvider,
   VideoProvider,
+  WatchLaterProvider,
 } from "./context";
 
 // Call make Server
@@ -23,7 +24,9 @@ root.render(
           <PlaylistProvider>
             <HistoryProvider>
               <LikesProvider>
-                <App />
+                <WatchLaterProvider>
+                  <App />
+                </WatchLaterProvider>
               </LikesProvider>
             </HistoryProvider>
           </PlaylistProvider>

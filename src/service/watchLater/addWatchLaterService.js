@@ -3,7 +3,7 @@ import axios from "axios";
 function addWatchLaterService(video, encodedToken) {
   try {
     const response = axios.post(
-      `/api/user/history`,
+      `/api/user/watchlater`,
       {
         video: video,
       },

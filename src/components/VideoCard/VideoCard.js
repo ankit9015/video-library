@@ -11,13 +11,15 @@ import {
 } from "../../constants/icon";
 import { useNavigate, useLocation } from "react-router-dom";
 import PlaylistModal from "../PlaylistModal/PlaylistModal";
-import { useAuth, useHistory, useLikes } from "../../context";
+import { useAuth, useHistory, useLikes, useWatchLater } from "../../context";
 
 function VideoCard(props) {
   const contentRef = useRef();
   const { authState } = useAuth();
   const { historyDispatch } = useHistory();
   const { addToLikes, removeFromLikes, likesState } = useLikes();
+  const { addToWatchLater, removeFromWatchLater, watchLaterState } =
+    useWatchLater();
   const [contentWidth, setContentWidth] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
@@ -76,9 +78,24 @@ function VideoCard(props) {
                 <BiLike className="icon-button" />
               </span>
             )}
-            <span data-tooltip="Watch Later">
-              <MdOutlineWatchLater className="icon-button" />
-            </span>
+            {watchLaterState &&
+            watchLaterState.find((item) => item._id === props.video._id) ? (
+              <span
+                data-tooltip="Remove from Watch Later"
+                onClick={() => removeFromWatchLater(props.video)}
+                className="color--primary"
+              >
+                <MdOutlineWatchLater className="icon-button " />
+              </span>
+            ) : (
+              <span
+                data-tooltip="Watch Later"
+                onClick={() => addToWatchLater(props.video)}
+              >
+                <MdOutlineWatchLater className="icon-button" />
+              </span>
+            )}
+
             {location.pathname.includes("playlist") ? (
               <span
                 data-tooltip="Remove from Playlist"

@@ -72,7 +72,7 @@
   }
 
   .main--grid {
-    padding: 0;
+    padding: 0 10px 2rem;
   }
   .sidebar {
     transform: translateX(-100%);

@@ -1,19 +1,22 @@
 import { useContext, createContext, useEffect, useState } from "react";
-import { addWatchLaterService, deleteWatchLaterService } from "../../service";
-import getWatchLaterService from "../../service/WatchLater/getWatchLaterService";
+import {
+  getWatchLaterService,
+  addWatchLaterService,
+  deleteWatchLaterService,
+} from "../../service";
 import { useAuth } from "../AuthContext/AuthContext";
 
 const WatchLaterContext = createContext();
 
 const WatchLaterProvider = ({ children }) => {
-  const [WatchLaterState, setWatchLaterState] = useState([]);
+  const [watchLaterState, setWatchLaterState] = useState([]);
   const { authState } = useAuth();
   useEffect(() => {
     if (authState.isLoggedIn) {
       (async () => {
         try {
           const { data } = await getWatchLaterService(authState.authToken);
-          setWatchLaterState(data.WatchLater);
+          setWatchLaterState(data.watchlater);
         } catch (error) {
           console.error(error);
         }
@@ -23,7 +26,7 @@ const WatchLaterProvider = ({ children }) => {
 
   const addToWatchLater = async (video) => {
     const { data } = await addWatchLaterService(video, authState.authToken);
-    setWatchLaterState(data.WatchLater);
+    setWatchLaterState(data.watchlater);
   };
 
   const removeFromWatchLater = async (video) => {
@@ -31,13 +34,13 @@ const WatchLaterProvider = ({ children }) => {
       video._id,
       authState.authToken
     );
-    setWatchLaterState(data.WatchLater);
+    setWatchLaterState(data.watchlater);
   };
 
   return (
     <WatchLaterContext.Provider
       value={{
-        WatchLaterState,
+        watchLaterState,
         setWatchLaterState,
         addToWatchLater,
         removeFromWatchLater,
