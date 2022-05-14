@@ -10,7 +10,7 @@ import {
 import { useVideo } from "../../context/VideoContext/VideoContext";
 import { randomElementsFromArray } from "../../utility";
 
-import { useAuth, useHistory, useLikes } from "../../context";
+import { useAuth, useHistory, useLikes, useWatchLater } from "../../context";
 import { PlaylistModal, VideoCard } from "../../components";
 
 function Watch() {
@@ -18,7 +18,9 @@ function Watch() {
   const { videos } = useVideo();
   const { historyDispatch, historyState } = useHistory();
   const { addToLikes, removeFromLikes, likesState } = useLikes();
-  const suggestedVideos = randomElementsFromArray(videos, 6);
+  const { addToWatchLater, removeFromWatchLater, watchLaterState } =
+    useWatchLater();
+  const [suggestedVideos, setSuggestedVideos] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
   const { authState } = useAuth();
@@ -44,6 +46,10 @@ function Watch() {
       historyDispatch({ type: "ADD_TO_HISTORY", payload: currVideo });
     }
   }, [authState.isLoggedIn, currVideo, historyDispatch]);
+
+  useEffect(() => {
+    setSuggestedVideos(randomElementsFromArray(videos, 6));
+  }, [videos]);
 
   console.log(historyState);
 
@@ -84,9 +90,23 @@ function Watch() {
                   <BiLike className="icon-button" />
                 </span>
               )}
-              <span className="tooltip-bottom-left" data-tooltip="Watch Later">
-                <MdOutlineWatchLater className="icon-button" />
-              </span>
+              {watchLaterState &&
+              watchLaterState.find((item) => item._id === currVideo._id) ? (
+                <span
+                  data-tooltip="Remove from Watch Later"
+                  onClick={() => removeFromWatchLater(currVideo)}
+                  className="color--primary"
+                >
+                  <MdOutlineWatchLater className="icon-button " />
+                </span>
+              ) : (
+                <span
+                  data-tooltip="Watch Later"
+                  onClick={() => addToWatchLater(currVideo)}
+                >
+                  <MdOutlineWatchLater className="icon-button" />
+                </span>
+              )}
               <span
                 className="tooltip-bottom-left"
                 data-tooltip="Add to Playlist"
