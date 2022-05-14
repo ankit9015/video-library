@@ -14,8 +14,8 @@ function addLikedService(video, encodedToken) {
       }
     );
     return response;
-  } catch (error) {
-    console.log(error);
+  } catch (err) {
+    console.log(err);
   }
 }
 
