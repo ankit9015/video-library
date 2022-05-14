@@ -11,12 +11,13 @@ import {
 } from "../../constants/icon";
 import { useNavigate, useLocation } from "react-router-dom";
 import PlaylistModal from "../PlaylistModal/PlaylistModal";
-import { useAuth, useHistory } from "../../context";
+import { useAuth, useHistory, useLikes } from "../../context";
 
 function VideoCard(props) {
   const contentRef = useRef();
   const { authState } = useAuth();
   const { historyDispatch } = useHistory();
+  const { addToLikes, removeFromLikes, likesState } = useLikes();
   const [contentWidth, setContentWidth] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
@@ -61,9 +62,20 @@ function VideoCard(props) {
         </div>
         <div className="flex-column ">
           <div className="video-card__buttons text-lg">
-            <span data-tooltip="Like">
-              <BiLike className="icon-button" />
-            </span>
+            {likesState &&
+            likesState.find((item) => item._id === props.video._id) ? (
+              <span
+                data-tooltip="Unlike"
+                onClick={() => removeFromLikes(props.video)}
+                className="color--primary"
+              >
+                <BiLike className="icon-button " />
+              </span>
+            ) : (
+              <span data-tooltip="Like" onClick={() => addToLikes(props.video)}>
+                <BiLike className="icon-button" />
+              </span>
+            )}
             <span data-tooltip="Watch Later">
               <MdOutlineWatchLater className="icon-button" />
             </span>

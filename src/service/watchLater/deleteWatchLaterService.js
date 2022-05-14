@@ -7,7 +7,7 @@ function deleteWatchLaterService(videoId, encodedToken) {
         authorization: encodedToken,
       },
     });
-    console.log(response);
+    return response;
   } catch (error) {
     console.log(error);
   }

@@ -13,10 +13,12 @@ import { getPlaylistsService } from "../../service";
 const PlaylistContext = createContext();
 
 const PlaylistProvider = ({ children }) => {
-  const [playlistsState, playlistsDispatch] = useReducer(playlistReducer, []);
-
   const { authState } = useAuth();
   const [playlists, setPlaylists] = useState([]);
+  const [playlistsState, playlistsDispatch] = useReducer(
+    playlistReducer,
+    playlists
+  );
 
   useEffect(() => {
     if (authState.isLoggedIn) {

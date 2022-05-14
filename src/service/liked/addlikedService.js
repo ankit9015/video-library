@@ -1,6 +1,6 @@
 import axios from "axios";
 
-function addlikedService(video, encodedToken) {
+function addLikedService(video, encodedToken) {
   try {
     const response = axios.post(
       `/api/user/likes`,
@@ -13,10 +13,10 @@ function addlikedService(video, encodedToken) {
         },
       }
     );
-    console.log(response);
+    return response;
   } catch (error) {
     console.log(error);
   }
 }
 
-export default addlikedService;
+export default addLikedService;

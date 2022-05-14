@@ -3,7 +3,6 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import "../pages.css";
 import "./Watch.css";
 import {
-  BiDislike,
   BiLike,
   MdOutlineWatchLater,
   MdPlaylistAdd,
@@ -11,13 +10,14 @@ import {
 import { useVideo } from "../../context/VideoContext/VideoContext";
 import { randomElementsFromArray } from "../../utility";
 
-import { useAuth, useHistory } from "../../context";
+import { useAuth, useHistory, useLikes } from "../../context";
 import { PlaylistModal, VideoCard } from "../../components";
 
 function Watch() {
   const { videoId } = useParams();
   const { videos } = useVideo();
   const { historyDispatch, historyState } = useHistory();
+  const { addToLikes, removeFromLikes, likesState } = useLikes();
   const suggestedVideos = randomElementsFromArray(videos, 6);
   const location = useLocation();
   const navigate = useNavigate();
@@ -70,12 +70,20 @@ function Watch() {
               allowFullScreen
             ></iframe>
             <div className="video-container__buttons flex-row text-lg">
-              <span className="tooltip-bottom-left" data-tooltip="Like">
-                <BiLike className="icon-button" />
-              </span>
-              <span className="tooltip-bottom-left" data-tooltip="Dislike">
-                <BiDislike className="icon-button" />
-              </span>
+              {likesState &&
+              likesState.find((item) => item._id === currVideo._id) ? (
+                <span
+                  data-tooltip="Unlike"
+                  className="color--primary"
+                  onClick={() => removeFromLikes(currVideo)}
+                >
+                  <BiLike className="icon-button" />
+                </span>
+              ) : (
+                <span data-tooltip="Like" onClick={() => addToLikes(currVideo)}>
+                  <BiLike className="icon-button" />
+                </span>
+              )}
               <span className="tooltip-bottom-left" data-tooltip="Watch Later">
                 <MdOutlineWatchLater className="icon-button" />
               </span>

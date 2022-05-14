@@ -5,12 +5,12 @@ import addToPlaylistService from "./playlist/addToPlaylistService";
 import removeFromPlaylistService from "./playlist/removeFromPlaylistService";
 import removePlaylistService from "./playlist/removePlaylistService";
 import getPlaylistsService from "./playlist/getPlaylistsService";
-// import addlikedService from "./liked/addlikedService";
-// import getLikedService from "./liked/getLikedService";
-// import deleteLikedService from "./liked/deleteLikedService";
-// import addWatchLaterService from "./watchLater/addWatchLaterService";
-// import deleteWatchLaterService from "./watchLater/deleteWatchLaterService";
-// import fetchWatchLaterService from "./watchLater/fetchWatchLaterService";
+import addLikedService from "./liked/addLikedService";
+import getLikedService from "./liked/getLikedService";
+import deleteLikedService from "./liked/deleteLikedService";
+import addWatchLaterService from "./watchLater/addWatchLaterService";
+import deleteWatchLaterService from "./watchLater/deleteWatchLaterService";
+import getWatchLaterService from "./watchLater/getWatchLaterService";
 
 export {
   getPlaylistsService,
@@ -20,10 +20,10 @@ export {
   removePlaylistService,
   addToPlaylistService,
   removeFromPlaylistService,
-  // addlikedService,
-  // getLikedService,
-  // deleteLikedService,
-  // addWatchLaterService,
-  // deleteWatchLaterService,
-  // fetchWatchLaterService,
+  addLikedService,
+  getLikedService,
+  deleteLikedService,
+  addWatchLaterService,
+  deleteWatchLaterService,
+  getWatchLaterService,
 };
