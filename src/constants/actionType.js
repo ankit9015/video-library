@@ -1,0 +1,3 @@
+export const CATEGORY_FILTER = "CATEGORY_FILTER";
+export const SEARCH_FILTER = "SEARCH_FILTER";
+export const CLEAR_FILTER = "CLEAR_FILTER";

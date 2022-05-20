@@ -37,6 +37,12 @@
   min-width: fit-content;
 }
 
+.explore__categories .active {
+  background-color: var(--primary-color);
+  color: var(--black);
+  font-weight: 700;
+}
+
 .playlist-header,
 .history-header {
   justify-content: flex-end;

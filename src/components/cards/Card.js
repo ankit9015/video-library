@@ -1,11 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Cards.css";
 import { MdOutlinePlayCircle } from "../../constants/icon";
+import { useFilter } from "../../context";
+import { CATEGORY_FILTER } from "../../constants/actionType";
 
 function Card(props) {
+  const { filterDispatch } = useFilter();
+  const navigate = useNavigate();
   return (
     <div
       className={`card p-xs ${props.variant ?? ""} ${props.className ?? ""}`}
+      onClick={() => {
+        filterDispatch({ type: CATEGORY_FILTER, payload: props.title });
+        navigate("../explore");
+      }}
     >
       <div className="card__media-container flex-row flex-center">
         <img
