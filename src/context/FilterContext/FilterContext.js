@@ -20,7 +20,11 @@ const FilterProvider = ({ children }) => {
 
   return (
     <FilterContext.Provider
-      value={{ filteredVideos, filterState, filterDispatch }}
+      value={{
+        filteredVideos,
+        filterState,
+        filterDispatch,
+      }}
     >
       {children}
     </FilterContext.Provider>

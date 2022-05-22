@@ -1,18 +1,25 @@
+import {
+  ADD_PLAYLIST,
+  ADD_TO_PLAYLIST,
+  REMOVE_FROM_PLAYLIST,
+  REMOVE_PLAYLIST,
+} from "../../constants/actionType";
+
 const playlistReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case "ADD_PLAYLIST":
+    case ADD_PLAYLIST:
       return [...payload];
-    case "REMOVE_PLAYLIST":
+    case REMOVE_PLAYLIST:
       return [...payload];
-    case "ADD_TO_PLAYLIST":
+    case ADD_TO_PLAYLIST:
       return [
         ...state.map((playlist) =>
           playlist._id === payload._id ? payload : playlist
         ),
       ];
-    case "REMOVE_FROM_PLAYLIST":
+    case REMOVE_FROM_PLAYLIST:
       return [
         ...state.map((playlist) =>
           playlist._id === payload._id ? payload : playlist

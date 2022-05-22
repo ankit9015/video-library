@@ -1,16 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaSearch } from "../../constants/icon";
-import { useFilter } from "../../context";
-import { SEARCH_FILTER } from "../../constants/actionType";
-// import { Link } from "react-router-dom";
 
 import "./SearchBox.css";
-import { useNavigate } from "react-router-dom";
+import {
+  createSearchParams,
+  useLocation,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 
 function SearchBox(props) {
-  const { filterDispatch } = useFilter();
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.pathname.includes("explore")) {
+      setSearchQuery("");
+    } else {
+      setSearchQuery(searchParams.get("search") ?? "");
+    }
+  }, [location, searchParams]);
+
   return (
     <div className={`search-box text-md ${props.className}`}>
       <input
@@ -22,11 +34,23 @@ function SearchBox(props) {
       <span
         className="icon-button"
         onClick={() => {
-          filterDispatch({
-            type: SEARCH_FILTER,
-            payload: searchQuery.trim(),
-          });
-          navigate("explore");
+          if (location.pathname === "/explore") {
+            if (searchQuery) {
+              setSearchParams({
+                search: searchQuery,
+                categories: searchParams.getAll("categories"),
+              });
+            } else {
+              setSearchParams({
+                categories: searchParams.getAll("categories"),
+              });
+            }
+          } else {
+            navigate({
+              pathname: "explore",
+              search: createSearchParams({ search: searchQuery }).toString(),
+            });
+          }
         }}
       >
         <FaSearch />

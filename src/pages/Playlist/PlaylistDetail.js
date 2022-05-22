@@ -1,6 +1,7 @@
 // import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { VideoCard } from "../../components";
+import { REMOVE_FROM_PLAYLIST } from "../../constants/actionType";
 import { useAuth, usePlaylist } from "../../context";
 import { removeFromPlaylistService } from "../../service";
 
@@ -16,7 +17,7 @@ function PlaylistDetail() {
       videoId,
       authState.authToken
     );
-    playlistsDispatch({ type: "REMOVE_FROM_PLAYLIST", payload: data.playlist });
+    playlistsDispatch({ type: REMOVE_FROM_PLAYLIST, payload: data.playlist });
   };
 
   const playlist =

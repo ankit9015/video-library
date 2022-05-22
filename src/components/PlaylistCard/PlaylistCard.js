@@ -6,6 +6,7 @@ import { BiTrash } from "../../constants/icon";
 import Modal from "../Modal/Modal";
 import { removePlaylistService } from "../../service";
 import { useAuth, usePlaylist } from "../../context";
+import { REMOVE_PLAYLIST } from "../../constants/actionType";
 
 function PlaylistCard(props) {
   const { playlist } = props;
@@ -34,7 +35,7 @@ function PlaylistCard(props) {
       playlist._id,
       authState.authToken
     );
-    playlistsDispatch({ type: "REMOVE_PLAYLIST", payload: data.playlists });
+    playlistsDispatch({ type: REMOVE_PLAYLIST, payload: data.playlists });
   };
 
   return (

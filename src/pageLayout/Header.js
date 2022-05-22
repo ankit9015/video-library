@@ -8,6 +8,7 @@ import "./pageLayout.css";
 function Header(props) {
   const [showSearchbox, setShowSearchbox] = useState(false);
   const { authState, logOutHandler } = useAuth();
+  console.log(authState.userInfo);
   return (
     <div className="header flex-row  flex-align-center p-xs">
       <div className="flex-row  flex-align-center gap-5">

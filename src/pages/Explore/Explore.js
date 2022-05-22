@@ -2,32 +2,55 @@ import { VideoCard } from "../../components";
 import { useEffect } from "react";
 import "../pages.css";
 import { useFilter, useVideo } from "../../context";
-import { CATEGORY_FILTER } from "../../constants/actionType";
+import { CATEGORY_FILTER, SEARCH_FILTER } from "../../constants/actionType";
+import { useSearchParams } from "react-router-dom";
 
 function Explore() {
   const { categories } = useVideo();
-  const { filterState, filteredVideos } = useFilter();
-  const { filterDispatch } = useFilter();
+  const { filteredVideos, filterDispatch } = useFilter();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     document.title = "Explore";
   }, []);
 
-  const selectedCategories = filterState.categories;
+  useEffect(() => {
+    filterDispatch({
+      type: CATEGORY_FILTER,
+      payload: searchParams.getAll("categories"),
+    });
+    filterDispatch({
+      type: SEARCH_FILTER,
+      payload: searchParams.get("search"),
+    });
+  }, [filterDispatch, searchParams]);
+
+  const categoriesToUrl = (categoryName) => {
+    let paramCategories = searchParams.getAll("categories");
+    const searchParamsArr = Array.from(searchParams);
+    if (paramCategories?.includes(categoryName)) {
+      setSearchParams(
+        searchParamsArr.filter(
+          (item) => !(item[0] === "categories" && item[1] === categoryName)
+        )
+      );
+    } else {
+      setSearchParams([...searchParamsArr, ["categories", categoryName]]);
+    }
+  };
   return (
     <div className="explore main--grid">
       <div className="explore__categories invisible-scroll">
         {categories.map((item) => (
           <div
             className={`capsule-tag text-md cursor--pointer ${
-              selectedCategories?.includes(item.categoryName) ? "active" : ""
+              searchParams.getAll("categories")?.includes(item.categoryName)
+                ? "active"
+                : ""
             }`}
             key={item._id}
             onClick={() => {
-              filterDispatch({
-                type: CATEGORY_FILTER,
-                payload: item.categoryName,
-              });
+              categoriesToUrl(item.categoryName);
             }}
           >
             {item.categoryName}

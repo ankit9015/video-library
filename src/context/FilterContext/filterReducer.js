@@ -8,14 +8,12 @@ const initialState = {};
 
 const filterReducer = (state, action) => {
   const { type, payload } = action;
-  // console.log(payload);
+  // console.log(type, payload);
   switch (type) {
     case CATEGORY_FILTER:
       return {
         ...state,
-        categories: state.categories
-          ? [...state.categories, payload]
-          : [payload],
+        categories: [...payload],
       };
     case SEARCH_FILTER:
       return { ...state, searchQuery: payload };
