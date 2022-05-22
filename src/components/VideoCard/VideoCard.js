@@ -4,17 +4,22 @@ import "../cards/Cards.css";
 import "./VideoCard.css";
 import {
   BiLike,
+  BiTrash,
   CgPlayListRemove,
   MdOutlineWatchLater,
   MdPlaylistAdd,
 } from "../../constants/icon";
 import { useNavigate, useLocation } from "react-router-dom";
 import PlaylistModal from "../PlaylistModal/PlaylistModal";
-import { useAuth } from "../../context";
+import { useAuth, useHistory, useLikes, useWatchLater } from "../../context";
 
 function VideoCard(props) {
   const contentRef = useRef();
   const { authState } = useAuth();
+  const { historyDispatch } = useHistory();
+  const { addToLikes, removeFromLikes, likesState } = useLikes();
+  const { addToWatchLater, removeFromWatchLater, watchLaterState } =
+    useWatchLater();
   const [contentWidth, setContentWidth] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
@@ -57,14 +62,40 @@ function VideoCard(props) {
             alt="category-gif"
           />
         </div>
-        <div className="flex-column">
+        <div className="flex-column ">
           <div className="video-card__buttons text-lg">
-            <span data-tooltip="Like">
-              <BiLike className="icon-button" />
-            </span>
-            <span data-tooltip="Watch Later">
-              <MdOutlineWatchLater className="icon-button" />
-            </span>
+            {likesState &&
+            likesState.find((item) => item._id === props.video._id) ? (
+              <span
+                data-tooltip="Unlike"
+                onClick={() => removeFromLikes(props.video)}
+                className="color--primary"
+              >
+                <BiLike className="icon-button " />
+              </span>
+            ) : (
+              <span data-tooltip="Like" onClick={() => addToLikes(props.video)}>
+                <BiLike className="icon-button" />
+              </span>
+            )}
+            {watchLaterState &&
+            watchLaterState.find((item) => item._id === props.video._id) ? (
+              <span
+                data-tooltip="Remove from Watch Later"
+                onClick={() => removeFromWatchLater(props.video)}
+                className="color--primary"
+              >
+                <MdOutlineWatchLater className="icon-button " />
+              </span>
+            ) : (
+              <span
+                data-tooltip="Watch Later"
+                onClick={() => addToWatchLater(props.video)}
+              >
+                <MdOutlineWatchLater className="icon-button" />
+              </span>
+            )}
+
             {location.pathname.includes("playlist") ? (
               <span
                 data-tooltip="Remove from Playlist"
@@ -92,6 +123,19 @@ function VideoCard(props) {
                 <MdPlaylistAdd className="icon-button" />
               </span>
             )}
+            {location.pathname.includes("history") && (
+              <span
+                data-tooltip="Delete"
+                onClick={() =>
+                  historyDispatch({
+                    type: "DELETE_FROM_HISTORY",
+                    payload: props.video,
+                  })
+                }
+              >
+                <BiTrash className="icon-button" />
+              </span>
+            )}
           </div>
           <div ref={contentRef} className="card__content p-xs">
             <h4
@@ -102,10 +146,20 @@ function VideoCard(props) {
           observing different denominator values and content width condition */}
               {truncateString(
                 props.video.title,
-                contentWidth / (contentWidth > 199 ? 5 : 6)
+                contentWidth /
+                  (contentWidth > 400 ? 4 : contentWidth > 199 ? 5 : 6)
               )}
             </h4>
             <p className="text-sm m-xs">{props.video.creator}</p>
+            {location.pathname.includes("history") &&
+              props.variant === "horizontal" && (
+                <p className="text-sm">
+                  {truncateString(
+                    props.video.description,
+                    contentWidth / (contentWidth > 400 ? 2 : 3.5)
+                  )}
+                </p>
+              )}
           </div>
         </div>
       </div>

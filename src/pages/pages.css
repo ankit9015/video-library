@@ -37,14 +37,28 @@
   min-width: fit-content;
 }
 
-.playlist-header {
+.playlist-header,
+.history-header {
   justify-content: flex-end;
+}
+
+.history-header {
+  width: 90%;
+  border-bottom: 2px solid var(--dark-gray);
+  margin: 10px 0;
+  height: 6rem;
+  align-items: center;
 }
 
 .playlist-detail__info {
   height: auto;
   border-top: 2px solid var(--dark-gray);
   align-items: flex-start;
+  margin-top: 5rem;
+}
+
+.watch-later,
+.liked {
   margin-top: 5rem;
 }
 

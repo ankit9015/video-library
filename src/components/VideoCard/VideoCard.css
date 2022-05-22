@@ -28,6 +28,7 @@
 
 .video-card.flex-row .video-card__buttons {
   order: 2;
+  margin-top: auto;
 }
 
 .video-card.flex-row .flex-column {
@@ -51,16 +52,28 @@
   margin: 10px auto 5px;
 }
 
+.history .video-card.flex-row {
+  width: 80rem;
+  height: 20rem;
+  gap: 5px;
+  max-width: 80%;
+}
+
+.history .video-card.flex-row .card__media-container {
+  width: 30%;
+  height: 100%;
+  flex-grow: -1;
+}
+
+@media screen and (max-width: 750px) {
+  .history .video-card.flex-row .card__media-container {
+    width: 40%;
+  }
+}
+
 @media screen and (max-width: 300px) {
   .video-card.flex-column {
     width: 25rem;
     height: 35rem;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .video-card.flex-row {
-    width: 30rem;
-    height: 20rem;
   }
 }
