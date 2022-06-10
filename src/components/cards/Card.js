@@ -1,11 +1,19 @@
 import React from "react";
+import { createSearchParams, useNavigate } from "react-router-dom";
 import "./Cards.css";
 import { MdOutlinePlayCircle } from "../../constants/icon";
 
 function Card(props) {
+  const navigate = useNavigate();
   return (
     <div
       className={`card p-xs ${props.variant ?? ""} ${props.className ?? ""}`}
+      onClick={() => {
+        navigate({
+          pathname: "explore",
+          search: createSearchParams({ categories: props.title }).toString(),
+        });
+      }}
     >
       <div className="card__media-container flex-row flex-center">
         <img

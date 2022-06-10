@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createPlaylistService } from "../../service";
 import { useAuth, usePlaylist } from "../../context/index";
+import { ADD_PLAYLIST } from "../../constants/actionType";
 
 function CreatePlaylist(props) {
   const [newPlaylist, setNewPlaylist] = useState({
@@ -20,7 +21,7 @@ function CreatePlaylist(props) {
       newPlaylist,
       authState.authToken
     );
-    playlistsDispatch({ type: "ADD_PLAYLIST", payload: data.playlists });
+    playlistsDispatch({ type: ADD_PLAYLIST, payload: data.playlists });
   };
 
   const createButtonHandler = () => {
@@ -34,7 +35,7 @@ function CreatePlaylist(props) {
   };
 
   return (
-    <div div className="playlist-modal flex-column gap-5">
+    <div className="playlist-modal flex-column gap-5">
       <h4 className="text-md playlist-modal__title">Create Playlist</h4>
       <label className="text-md playlist-modal__new-playlist flex-column">
         <p>Title: </p>

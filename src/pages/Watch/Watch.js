@@ -12,11 +12,12 @@ import { randomElementsFromArray } from "../../utility";
 
 import { useAuth, useHistory, useLikes, useWatchLater } from "../../context";
 import { PlaylistModal, VideoCard } from "../../components";
+import { ADD_TO_HISTORY } from "../../constants/actionType";
 
 function Watch() {
   const { videoId } = useParams();
   const { videos } = useVideo();
-  const { historyDispatch, historyState } = useHistory();
+  const { historyDispatch } = useHistory();
   const { addToLikes, removeFromLikes, likesState } = useLikes();
   const { addToWatchLater, removeFromWatchLater, watchLaterState } =
     useWatchLater();
@@ -43,15 +44,13 @@ function Watch() {
 
   useEffect(() => {
     if (authState.isLoggedIn && currVideo) {
-      historyDispatch({ type: "ADD_TO_HISTORY", payload: currVideo });
+      historyDispatch({ type: ADD_TO_HISTORY, payload: currVideo });
     }
   }, [authState.isLoggedIn, currVideo, historyDispatch]);
 
   useEffect(() => {
     setSuggestedVideos(randomElementsFromArray(videos, 6));
-  }, [videos]);
-
-  console.log(historyState);
+  }, [videos, currVideo]);
 
   return (
     <>
@@ -130,8 +129,8 @@ function Watch() {
             <div className="video__category-tags flex-row text-md">
               Category Tags:
               {currVideo &&
-                currVideo["categoryTags"].map((item) => (
-                  <div key={item._id} className="capsule-tag text-md">
+                currVideo["categoryTags"].map((item, idx) => (
+                  <div key={idx} className="capsule-tag text-md">
                     {item}
                   </div>
                 ))}
@@ -146,8 +145,8 @@ function Watch() {
           {suggestedVideos &&
             suggestedVideos.map((item) => (
               <VideoCard
-                variant={windowWidth < 1100 ? "vertical" : "horizontal"}
                 key={item._id}
+                variant={windowWidth < 1100 ? "vertical" : "horizontal"}
                 video={item}
               />
             ))}

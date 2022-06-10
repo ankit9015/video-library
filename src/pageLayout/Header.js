@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchBox from "../components/SearchBox/SearchBox";
-import { MdSearch, MdMenu, FaRegUserCircle } from "../constants/icon";
+import { MdSearch, MdMenu } from "../constants/icon";
 import { useAuth } from "../context/AuthContext/AuthContext";
 import "./pageLayout.css";
 
 function Header(props) {
   const [showSearchbox, setShowSearchbox] = useState(false);
   const { authState, logOutHandler } = useAuth();
+  console.log(authState.userInfo);
   return (
     <div className="header flex-row  flex-align-center p-xs">
       <div className="flex-row  flex-align-center gap-5">
@@ -48,8 +49,8 @@ function Header(props) {
             Login
           </Link>
         )}
-        <div className=" header__avatar avatar m-xs">
-          <FaRegUserCircle />
+        <div className="header__avatar capsule-tag m-xs text-md">
+          {authState.userInfo.firstName}
         </div>
       </div>
     </div>

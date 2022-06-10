@@ -22,7 +22,7 @@ const LikesProvider = ({ children }) => {
           console.error(error);
         }
       })();
-    }
+    } else setLikesState([]);
   }, [authState]);
 
   const addToLikes = async (video) => {

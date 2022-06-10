@@ -24,7 +24,7 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "Base boosters",
+    categoryName: "Bass boosters",
     img: "bass.jpeg",
     gif: "bass.gif",
     description:

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { VideoCard } from "../../components";
+import { DELETE_ALL_HISTORY } from "../../constants/actionType";
 import { useHistory } from "../../context";
 function History() {
   const { historyState, historyDispatch } = useHistory();
@@ -21,7 +22,7 @@ function History() {
       <div className="history-header flex-row">
         <button
           className="button button-primary text-md"
-          onClick={() => historyDispatch({ type: "DELETE_ALL" })}
+          onClick={() => historyDispatch({ type: DELETE_ALL_HISTORY })}
         >
           DELETE ALL
         </button>

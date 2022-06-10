@@ -7,6 +7,7 @@ import {
   WatchLaterProvider,
   useWatchLater,
 } from "./WatchLater/WatchLaterContext";
+import { FilterProvider, useFilter } from "./FilterContext/FilterContext";
 
 export {
   PlaylistProvider,
@@ -21,4 +22,6 @@ export {
   useLikes,
   WatchLaterProvider,
   useWatchLater,
+  FilterProvider,
+  useFilter,
 };

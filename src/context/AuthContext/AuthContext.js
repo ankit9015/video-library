@@ -7,6 +7,7 @@ const AuthContext = createContext({});
 
 const AuthProvider = ({ children }) => {
   const authToken = JSON.parse(localStorage.getItem("AUTH-TOKEN"));
+  const userInfo = JSON.parse(localStorage.getItem("USER-INFO"));
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -14,15 +15,19 @@ const AuthProvider = ({ children }) => {
   const [authState, setAuthState] = useState({
     isLoggedIn: authToken ? true : false,
     authToken: authToken,
+    userInfo: userInfo,
   });
 
   const loginHandler = async ({ email, password }) => {
     const { data, status } = await loginService({ email, password });
+    console.log(data);
     if (status === 200) {
       localStorage.setItem("AUTH-TOKEN", JSON.stringify(data.encodedToken));
+      localStorage.setItem("USER-INFO", JSON.stringify(data.foundUser));
       setAuthState({
         isLoggedIn: true,
         authToken: JSON.stringify(data.encodedToken),
+        userInfo: data.foundUser,
       });
       location.state ? navigate(location.state.from.pathname) : navigate("/");
     }
@@ -36,12 +41,8 @@ const AuthProvider = ({ children }) => {
       password,
     });
     if (status === 201) {
-      localStorage.setItem("AUTH-TOKEN", JSON.stringify(data.encodedToken));
-      setAuthState({
-        isLoggedIn: true,
-        authToken: JSON.stringify(data.encodedToken),
-      });
-      location.state ? navigate(location.state.from.pathname) : navigate("/");
+      const { email, password } = data.createdUser;
+      loginHandler({ email, password });
     }
   };
 

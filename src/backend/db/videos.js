@@ -83,7 +83,7 @@ export const videos = [
     _id: "ZkqyIoYAXV8",
     title: "Skrillex & Rick Ross - Purple Lamborghini [Official Video]",
     creator: "Skrillex",
-    categoryTags: ["Bass-boosters", "Gaming"],
+    categoryTags: ["Bass boosters", "Gaming"],
     description:
       'The official video for Skrillex & Rick Ross - "Purple Lamborghini"\n Featured in "Suicide Squad" movie & official soundtrack',
   },
@@ -91,7 +91,7 @@ export const videos = [
     _id: "z6H7QX0fQrE",
     title: "Bhayanak Atma feat. Gagan Mudgal",
     creator: "Nucleya",
-    categoryTags: ["Bass-boosters"],
+    categoryTags: ["Bass boosters"],
     description: "Nucleya - Bhayanak Atma | 2nd single off Raja Baja!! ",
   },
   {
@@ -99,7 +99,7 @@ export const videos = [
     title:
       'Skrillex & Damian "Jr. Gong" Marley - Make It Bun Dem [OFFICIAL VIDEO]',
     creator: "Skrillex",
-    categoryTags: ["Bass-boosters"],
+    categoryTags: ["Bass boosters"],
     description:
       'The official video for Skrillex & Damian "Jr. Gong" Marley - Make It Bun Dem',
   },
@@ -141,7 +141,7 @@ export const videos = [
     _id: "fKopy74weus",
     title: "Imagine Dragons - Thunder",
     creator: "Imagine Dragons",
-    categoryTags: ["Bass-boosters", "Pop"],
+    categoryTags: ["Bass boosters", "Pop"],
     description: "The official video for Imagine Dragons - Thunder",
   },
   {

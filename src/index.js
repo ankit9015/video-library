@@ -6,6 +6,7 @@ import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
 import {
   AuthProvider,
+  FilterProvider,
   HistoryProvider,
   LikesProvider,
   PlaylistProvider,
@@ -25,7 +26,9 @@ root.render(
             <HistoryProvider>
               <LikesProvider>
                 <WatchLaterProvider>
-                  <App />
+                  <FilterProvider>
+                    <App />
+                  </FilterProvider>
                 </WatchLaterProvider>
               </LikesProvider>
             </HistoryProvider>

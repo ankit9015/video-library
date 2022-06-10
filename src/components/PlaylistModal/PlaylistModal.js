@@ -5,6 +5,10 @@ import "./PlaylistModal.css";
 import { useAuth } from "../../context/index";
 import { addToPlaylistService, removeFromPlaylistService } from "../../service";
 import CreatePlaylist from "./CreatePlaylist";
+import {
+  ADD_TO_PLAYLIST,
+  REMOVE_FROM_PLAYLIST,
+} from "../../constants/actionType";
 
 function PlaylistModal(props) {
   const { video, showPlaylistModal, setShowPlaylistModal } = props;
@@ -20,7 +24,7 @@ function PlaylistModal(props) {
       video,
       authState.authToken
     );
-    playlistsDispatch({ type: "ADD_TO_PLAYLIST", payload: data.playlist });
+    playlistsDispatch({ type: ADD_TO_PLAYLIST, payload: data.playlist });
   };
 
   const removeFromPlaylist = async (playlist) => {
@@ -29,7 +33,7 @@ function PlaylistModal(props) {
       video._id,
       authState.authToken
     );
-    playlistsDispatch({ type: "REMOVE_FROM_PLAYLIST", payload: data.playlist });
+    playlistsDispatch({ type: REMOVE_FROM_PLAYLIST, payload: data.playlist });
   };
 
   return (

@@ -12,6 +12,7 @@ import {
 import { useNavigate, useLocation } from "react-router-dom";
 import PlaylistModal from "../PlaylistModal/PlaylistModal";
 import { useAuth, useHistory, useLikes, useWatchLater } from "../../context";
+import { DELETE_FROM_HISTORY } from "../../constants/actionType";
 
 function VideoCard(props) {
   const contentRef = useRef();
@@ -37,6 +38,9 @@ function VideoCard(props) {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const navigateLogin = () =>
+    navigate("../login", { state: { from: location } }, { replace: true });
 
   return (
     <>
@@ -74,7 +78,16 @@ function VideoCard(props) {
                 <BiLike className="icon-button " />
               </span>
             ) : (
-              <span data-tooltip="Like" onClick={() => addToLikes(props.video)}>
+              <span
+                data-tooltip="Like"
+                onClick={() => {
+                  if (authState.isLoggedIn) {
+                    addToLikes(props.video);
+                  } else {
+                    navigateLogin();
+                  }
+                }}
+              >
                 <BiLike className="icon-button" />
               </span>
             )}
@@ -90,7 +103,13 @@ function VideoCard(props) {
             ) : (
               <span
                 data-tooltip="Watch Later"
-                onClick={() => addToWatchLater(props.video)}
+                onClick={() => {
+                  if (authState.isLoggedIn) {
+                    addToWatchLater(props.video);
+                  } else {
+                    navigateLogin();
+                  }
+                }}
               >
                 <MdOutlineWatchLater className="icon-button" />
               </span>
@@ -112,11 +131,7 @@ function VideoCard(props) {
                   if (authState.isLoggedIn) {
                     setShowPlaylistModal(true);
                   } else {
-                    navigate(
-                      "../login",
-                      { state: { from: location } },
-                      { replace: true }
-                    );
+                    navigateLogin();
                   }
                 }}
               >
@@ -128,7 +143,7 @@ function VideoCard(props) {
                 data-tooltip="Delete"
                 onClick={() =>
                   historyDispatch({
-                    type: "DELETE_FROM_HISTORY",
+                    type: DELETE_FROM_HISTORY,
                     payload: props.video,
                   })
                 }
