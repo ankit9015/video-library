@@ -51,6 +51,7 @@ function SearchBox(props) {
               search: createSearchParams({ search: searchQuery }).toString(),
             });
           }
+          props.setShowSearchbox(false);
         }}
       >
         <FaSearch />

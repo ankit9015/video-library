@@ -8,7 +8,7 @@ import "./pageLayout.css";
 function Header(props) {
   const [showSearchbox, setShowSearchbox] = useState(false);
   const { authState, logOutHandler } = useAuth();
-  console.log(authState.userInfo);
+
   return (
     <div className="header flex-row  flex-align-center p-xs">
       <div className="flex-row  flex-align-center gap-5">
@@ -49,9 +49,11 @@ function Header(props) {
             Login
           </Link>
         )}
-        <div className="header__avatar capsule-tag m-xs text-md">
-          {authState.userInfo.firstName}
-        </div>
+        {authState.userInfo && (
+          <div className="header__avatar capsule-tag m-xs text-md">
+            {authState.userInfo?.firstName}
+          </div>
+        )}
       </div>
     </div>
   );
