@@ -50,7 +50,9 @@
   border: 1px solid var(--dark-gray);
 }
 .video__category-tags {
-  gap: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 .video__category-tags .capsule-tag {
   background-color: var(--dark-gray);
