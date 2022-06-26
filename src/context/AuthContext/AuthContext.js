@@ -20,7 +20,6 @@ const AuthProvider = ({ children }) => {
 
   const loginHandler = async ({ email, password }) => {
     const { data, status } = await loginService({ email, password });
-    console.log(data);
     if (status === 200) {
       localStorage.setItem("AUTH-TOKEN", JSON.stringify(data.encodedToken));
       localStorage.setItem("USER-INFO", JSON.stringify(data.foundUser));

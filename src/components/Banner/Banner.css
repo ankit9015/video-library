@@ -12,6 +12,9 @@
   height: 100%;
   position: relative;
 }
+.banner__title {
+  margin-bottom: 1rem;
+}
 .banner__content {
   position: absolute;
   padding: 10px;
