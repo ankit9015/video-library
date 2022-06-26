@@ -17,8 +17,8 @@ function Login() {
   const { loginHandler } = useAuth();
 
   const guestUser = {
-    email: "adarshbalika@gmail.com",
-    password: "adarshBalika123",
+    email: "ankit@gmail.com",
+    password: "ankit123",
     rememberUser: false,
   };
 

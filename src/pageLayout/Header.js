@@ -35,12 +35,17 @@ function Header(props) {
           <MdSearch />
         </span>
         {authState.isLoggedIn ? (
-          <button
-            className="header__logout text-md button button-primary"
-            onClick={() => logOutHandler()}
-          >
-            Log-out
-          </button>
+          <>
+            <button
+              className="header__logout text-md button button-primary"
+              onClick={() => logOutHandler()}
+            >
+              Log-out
+            </button>
+            <div className="header__avatar capsule-tag m-xs text-md">
+              {authState.userInfo?.firstName}
+            </div>
+          </>
         ) : (
           <Link
             to="/login"
@@ -48,11 +53,6 @@ function Header(props) {
           >
             Login
           </Link>
-        )}
-        {authState.userInfo && (
-          <div className="header__avatar capsule-tag m-xs text-md">
-            {authState.userInfo?.firstName}
-          </div>
         )}
       </div>
     </div>
