@@ -31,6 +31,12 @@
   display: none;
 }
 
+.header__logo {
+  object-fit: contain;
+  height: 5rem;
+  width: auto;
+}
+
 /* sidebar-------------------- */
 
 .sidebar {

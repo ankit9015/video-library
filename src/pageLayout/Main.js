@@ -83,7 +83,6 @@ function Main() {
           }
         />
         <Route path="/settings" element={<Settings />} />
-
         <Route path="/mock-api" element={<MockAPI />} />
         <Route path="*" element={<div>Page not found</div>} />
       </Routes>
