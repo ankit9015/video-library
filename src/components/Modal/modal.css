@@ -9,6 +9,7 @@
   color: var(--white);
   backdrop-filter: blur(8px);
   padding: 10px;
+  border: 1px solid;
 }
 
 .modal__close {

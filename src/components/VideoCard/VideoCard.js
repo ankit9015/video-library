@@ -13,6 +13,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import PlaylistModal from "../PlaylistModal/PlaylistModal";
 import { useAuth, useHistory, useLikes, useWatchLater } from "../../context";
 import { DELETE_FROM_HISTORY } from "../../constants/actionType";
+import Modal from "../Modal/Modal";
 
 function VideoCard(props) {
   const contentRef = useRef();
@@ -25,6 +26,7 @@ function VideoCard(props) {
   const navigate = useNavigate();
   const location = useLocation();
   const [showPlaylistModal, setShowPlaylistModal] = useState(false);
+  const [showPlaylistRemoveModal, setShowPlaylistRemoveModal] = useState(false);
 
   const handleResize = () => {
     setContentWidth(contentRef.current.offsetWidth);
@@ -119,10 +121,40 @@ function VideoCard(props) {
               <span
                 data-tooltip="Remove from Playlist"
                 onClick={() => {
-                  props.removeFromplaylist();
+                  setShowPlaylistRemoveModal(true);
                 }}
               >
                 <CgPlayListRemove className="icon-button" />
+                {showPlaylistRemoveModal && (
+                  <Modal
+                    open={showPlaylistRemoveModal}
+                    close={() => setShowPlaylistRemoveModal((prev) => !prev)}
+                  >
+                    <div className="playlist-remove-modal flex-column">
+                      <p className="text-md">
+                        Do you want to remove {props.video.title} from playlist
+                        ?
+                      </p>
+                      <div className="flex-row">
+                        <button
+                          className="button button-primary text-md"
+                          onClick={() => props.removeFromplaylist()}
+                        >
+                          Yes
+                        </button>
+                        <button
+                          className="button button-secondary text-md"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setShowPlaylistRemoveModal(false);
+                          }}
+                        >
+                          No
+                        </button>
+                      </div>
+                    </div>
+                  </Modal>
+                )}
               </span>
             ) : (
               <span
