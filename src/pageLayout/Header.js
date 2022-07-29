@@ -8,7 +8,7 @@ import "./pageLayout.css";
 function Header(props) {
   const [showSearchbox, setShowSearchbox] = useState(false);
   const { authState, logOutHandler } = useAuth();
-  console.log(authState.userInfo);
+
   return (
     <div className="header flex-row  flex-align-center p-xs">
       <div className="flex-row  flex-align-center gap-5">
@@ -18,7 +18,7 @@ function Header(props) {
         >
           <MdMenu />
         </span>
-        <span className="header__logo text-md m-xs">Logo</span>
+        <span className="header__logo text-md m-xs">Stream-it</span>
       </div>
       <span
         className={`header__search-box ${
@@ -35,12 +35,17 @@ function Header(props) {
           <MdSearch />
         </span>
         {authState.isLoggedIn ? (
-          <button
-            className="header__logout text-md button button-primary"
-            onClick={() => logOutHandler()}
-          >
-            Log-out
-          </button>
+          <>
+            <button
+              className="header__logout text-md button button-primary"
+              onClick={() => logOutHandler()}
+            >
+              Log-out
+            </button>
+            <div className="header__avatar capsule-tag m-xs text-md">
+              {authState.userInfo?.firstName}
+            </div>
+          </>
         ) : (
           <Link
             to="/login"
@@ -49,9 +54,6 @@ function Header(props) {
             Login
           </Link>
         )}
-        <div className="header__avatar capsule-tag m-xs text-md">
-          {authState.userInfo.firstName}
-        </div>
       </div>
     </div>
   );

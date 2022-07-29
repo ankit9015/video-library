@@ -8,7 +8,6 @@ const initialState = {};
 
 const filterReducer = (state, action) => {
   const { type, payload } = action;
-  // console.log(type, payload);
   switch (type) {
     case CATEGORY_FILTER:
       return {
