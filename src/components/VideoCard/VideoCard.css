@@ -65,6 +65,21 @@
   flex-grow: -1;
 }
 
+.playlist-remove-modal {
+  height: max-content;
+  min-height: 15rem;
+  width: 40rem;
+  max-width: 80vw;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.playlist-remove-modal .flex-row {
+  width: 100%;
+  justify-content: center;
+  gap: 5rem;
+}
+
 @media screen and (max-width: 750px) {
   .history .video-card.flex-row .card__media-container {
     width: 40%;
