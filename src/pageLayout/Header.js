@@ -18,7 +18,7 @@ function Header(props) {
         >
           <MdMenu />
         </span>
-        <span className="header__logo text-md m-xs">Stream-it</span>
+        <img className="header__logo" src="./logo.png" alt="logo" />
       </div>
       <span
         className={`header__search-box ${

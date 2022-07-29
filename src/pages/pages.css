@@ -72,6 +72,12 @@
   color: black;
 }
 
+.page-not-found {
+  display: grid;
+  height: 100%;
+  place-items: center;
+}
+
 @media screen and (max-width: 1000px) {
   .login__card,
   .signup__card {

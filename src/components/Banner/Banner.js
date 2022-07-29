@@ -32,23 +32,26 @@ function Banner() {
               <picture>
                 <source
                   className="banner__img"
-                  media="(min-width: 500px)"
-                  srcSet={`/assets/banner/${item.img_1200w} 1200w,
-          /assets/banner/${item.img_700w} 700w`}
+                  media="(min-width: 1000px)"
+                  srcSet={`./assets/banner/${item.img_1200w}`}
                   sizes="80vw"
                 />
                 <source
                   className="banner__img"
-                  srcSet={`/assets/banner/${item.imgPortrait}`}
+                  media="(min-width: 500px)"
+                  srcSet={`./assets/banner/${item.img_700w}`}
+                />
+                <source
+                  className="banner__img"
+                  srcSet={`./assets/banner/${item.imgPortrait}`}
                 />
                 <img
                   className="banner__img"
-                  src={`/assets/banner/${item.img_700w}`}
+                  src={`./assets/banner/${item.img_700w}`}
                   alt="lofi"
                 />
               </picture>
             </div>
-
             <div className="banner__content">
               <h1 className="banner__title H2">{item.title}</h1>
               <div className="banner__description text-md">

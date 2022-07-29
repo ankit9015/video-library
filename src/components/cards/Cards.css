@@ -1,7 +1,7 @@
 .category-card {
   background-color: var(--dark-gray);
   width: 35rem;
-  max-width: 90%;
+  max-width: 80vw;
   min-height: 10rem;
   position: relative;
   padding: 0;
@@ -67,5 +67,9 @@
 @media screen and (max-width: 300px) {
   .video-card {
     width: 25rem;
+  }
+
+  .category-card {
+    margin: 2px auto;
   }
 }

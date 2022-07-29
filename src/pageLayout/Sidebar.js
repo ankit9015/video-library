@@ -7,7 +7,6 @@ import {
   MdHome,
   MdOutlineWatchLater,
   MdPlaylistPlay,
-  MdSettings,
 } from "../constants/icon";
 
 function Sidebar(props) {
@@ -74,15 +73,6 @@ function Sidebar(props) {
       >
         <MdOutlineWatchLater className="text-lg" />
         <p>Watch Later</p>
-      </NavLink>
-
-      <NavLink
-        style={getActiveLinkStyle}
-        to="/settings"
-        className="sidebar__nav-button no-link m-xs flex-row gap-5 flex-align-center"
-      >
-        <MdSettings className="text-lg" />
-        <p>Settings</p>
       </NavLink>
     </div>
   );

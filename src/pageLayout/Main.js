@@ -15,6 +15,7 @@ import {
   WatchLater,
   Watch,
   PlaylistDetail,
+  PageNotFound,
 } from "../pages";
 import MockAPI from "../pages/Mockapi";
 
@@ -83,9 +84,8 @@ function Main() {
           }
         />
         <Route path="/settings" element={<Settings />} />
-
         <Route path="/mock-api" element={<MockAPI />} />
-        <Route path="*" element={<div>Page not found</div>} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   );
