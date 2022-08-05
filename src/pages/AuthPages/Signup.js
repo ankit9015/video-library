@@ -15,6 +15,15 @@ function Signup() {
     acceptTAndC: false,
   });
 
+  const dummyInfo = {
+    firstname: "Ankit",
+    lastname: "Joshi",
+    email: "ankitj@gmail.com",
+    password: "ankit123",
+    confirmPassword: "ankit123",
+    acceptTAndC: true,
+  };
+
   const { signupHandler } = useAuth();
 
   useEffect(() => {
@@ -124,7 +133,12 @@ function Signup() {
             >
               Create new account
             </button>
-
+            <button
+              className="button button-outline-secondary text-md"
+              onClick={() => setSignupForm(dummyInfo)}
+            >
+              Fill Dummy data
+            </button>
             <Link
               className="text-center text-md button link-btn button-outline-secondary"
               to="../login"

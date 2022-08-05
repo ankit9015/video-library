@@ -7,7 +7,6 @@ const loginService = async ({ email, password }) => {
     return response;
   } catch (err) {
     console.log(err);
-    alert("Login email or password incorrect");
   }
 };
 

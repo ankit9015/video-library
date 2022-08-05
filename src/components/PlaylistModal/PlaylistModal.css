@@ -23,10 +23,13 @@
 .playlist-modal__new-playlist textarea {
   margin: 0.5rem auto 1rem;
   width: 90%;
+  background-color: inherit;
 }
 
 .playlist-modal__new-playlist textarea {
   height: 15rem;
+  border: 2px solid var(--gray);
+  color: var(--white);
 }
 
 .playlist-modal__title {
@@ -35,4 +38,8 @@
 
 .available-playlists {
   color: var(--white);
+}
+
+.playlist-modal__new-playlist .flex-row {
+  justify-content: space-between;
 }

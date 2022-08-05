@@ -27,14 +27,19 @@ function History() {
           DELETE ALL
         </button>
       </div>
-      {historyState &&
+      {historyState.length > 0 ? (
         historyState.map((item) => (
           <VideoCard
             key={item._id}
             variant={windowWidth < 450 ? "vertical" : "horizontal"}
             video={item}
           />
-        ))}
+        ))
+      ) : (
+        <p className="text-lg page-center text-center">
+          Watch videos to add them to your history.
+        </p>
+      )}
     </div>
   );
 }

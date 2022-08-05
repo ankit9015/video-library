@@ -5,6 +5,7 @@ import {
   deleteWatchLaterService,
 } from "../../service";
 import { useAuth } from "../AuthContext/AuthContext";
+import { toast } from "react-hot-toast";
 
 const WatchLaterContext = createContext();
 
@@ -25,16 +26,26 @@ const WatchLaterProvider = ({ children }) => {
   }, [authState]);
 
   const addToWatchLater = async (video) => {
-    const { data } = await addWatchLaterService(video, authState.authToken);
-    setWatchLaterState(data.watchlater);
+    try {
+      const { data } = await addWatchLaterService(video, authState.authToken);
+      setWatchLaterState(data.watchlater);
+      toast.success("Video added to Watch Later");
+    } catch {
+      toast("Video already added to watch later");
+    }
   };
 
   const removeFromWatchLater = async (video) => {
-    const { data } = await deleteWatchLaterService(
-      video._id,
-      authState.authToken
-    );
-    setWatchLaterState(data.watchlater);
+    try {
+      const { data } = await deleteWatchLaterService(
+        video._id,
+        authState.authToken
+      );
+      setWatchLaterState(data.watchlater);
+      toast.success("Video removed from Watch Later.");
+    } catch {
+      return;
+    }
   };
 
   return (

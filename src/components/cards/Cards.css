@@ -1,6 +1,5 @@
 .category-card {
   background-color: var(--dark-gray);
-  width: 35rem;
   max-width: 80vw;
   min-height: 10rem;
   position: relative;

@@ -21,6 +21,11 @@
   max-width: 100%;
 }
 
+.playlist-card .card__title {
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
 .playlist-card .card__media-container {
   height: 70%;
   background-color: var(--dark-black);

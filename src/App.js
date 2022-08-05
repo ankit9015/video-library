@@ -3,6 +3,7 @@ import "./App.css";
 import "./utility/utility.css";
 import { Header, Main, Sidebar } from "./pageLayout";
 import { useLocation } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -19,6 +20,7 @@ function App() {
       <Sidebar showSidebar={showSidebar} />
 
       <Main />
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 }

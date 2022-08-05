@@ -93,7 +93,7 @@ function PlaylistCard(props) {
           )}
         </div>
         <h4
-          className="card__title cursor--pointer"
+          className="card__title cursor--pointer text-elipsis-2lines"
           onClick={() => navigate(`../playlist/${playlist._id}`)}
         >
           {/* trucateString is taking the second parameter by experimentally 

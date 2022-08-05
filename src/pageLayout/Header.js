@@ -42,8 +42,8 @@ function Header(props) {
             >
               Log-out
             </button>
-            <div className="header__avatar capsule-tag m-xs text-md">
-              {authState.userInfo?.firstName}
+            <div className="header__avatar capsule-tag m-xs text-md ">
+              <p>{authState.userInfo?.firstName}</p>
             </div>
           </>
         ) : (

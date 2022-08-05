@@ -9,12 +9,23 @@ import { useAuth, useVideo, useWatchLater } from "../../context";
 function Banner() {
   var settings = {
     dots: true,
+    arrows: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    swipeToSlide: true,
     autoplay: true,
     className: "slider",
+    responsive: [
+      {
+        breakpoint: 500,
+        settings: {
+          arrows: false,
+          dots: false,
+        },
+      },
+    ],
   };
 
   const { authState } = useAuth();
@@ -32,14 +43,11 @@ function Banner() {
               <picture>
                 <source
                   className="banner__img"
-                  media="(min-width: 1000px)"
-                  srcSet={`./assets/banner/${item.img_1200w}`}
-                  sizes="80vw"
-                />
-                <source
-                  className="banner__img"
                   media="(min-width: 500px)"
-                  srcSet={`./assets/banner/${item.img_700w}`}
+                  srcSet={`./assets/banner/${item.img_1200w} 500w,
+                  ./assets/banner/${item.img_1200w} 1000w,
+                  `}
+                  sizes="80vw"
                 />
                 <source
                   className="banner__img"
@@ -53,7 +61,7 @@ function Banner() {
               </picture>
             </div>
             <div className="banner__content">
-              <h1 className="banner__title H2">{item.title}</h1>
+              <h1 className="banner__title text-lg word-break">{item.title}</h1>
               <div className="banner__description text-md">
                 {truncateString(item.description, 120)}
               </div>

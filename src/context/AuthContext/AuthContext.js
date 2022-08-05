@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { loginService } from "../../service/authentication/loginService";
 import signupService from "../../service/authentication/signupService";
+import { toast } from "react-hot-toast";
 
 const AuthContext = createContext({});
 
@@ -29,6 +30,9 @@ const AuthProvider = ({ children }) => {
         userInfo: data.foundUser,
       });
       location.state ? navigate(location.state.from.pathname) : navigate("/");
+      toast.success("User Logged in.");
+    } else {
+      toast.error("Login failed");
     }
   };
 
@@ -40,8 +44,17 @@ const AuthProvider = ({ children }) => {
       password,
     });
     if (status === 201) {
-      const { email, password } = data.createdUser;
-      loginHandler({ email, password });
+      localStorage.setItem("AUTH-TOKEN", JSON.stringify(data.encodedToken));
+      localStorage.setItem("USER-INFO", JSON.stringify(data.createdUser));
+      setAuthState({
+        isLoggedIn: true,
+        authToken: JSON.stringify(data.encodedToken),
+        userInfo: data.createdUser,
+      });
+      location.state ? navigate(location.state.from.pathname) : navigate("/");
+      toast.success("User Signed up.");
+    } else {
+      toast.error("Signup failed");
     }
   };
 
@@ -49,6 +62,7 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem("AUTH-TOKEN");
     setAuthState({ isLoggedIn: false, authToken: undefined });
     navigate("/");
+    toast.success("User Logged out.");
   };
 
   return (

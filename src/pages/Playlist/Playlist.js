@@ -25,10 +25,15 @@ function Playlist() {
           </Modal>
         )}
       </div>
-      {playlistsState &&
+      {playlistsState?.length > 0 ? (
         playlistsState.map((item) => (
           <PlaylistCard key={item._id} playlist={item} />
-        ))}
+        ))
+      ) : (
+        <p className="text-lg page-center text-center">
+          You have not created any Playlists yet.
+        </p>
+      )}
     </div>
   );
 }

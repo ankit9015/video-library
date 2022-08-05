@@ -24,6 +24,7 @@ import {
 
 import { CgPlayListRemove } from "react-icons/cg";
 import { BiLike, BiDislike, BiTrash } from "react-icons/bi";
+import { IoMdArrowDropdown } from "react-icons/io";
 
 export {
   BiLike,
@@ -48,4 +49,5 @@ export {
   MdPlaylistAdd,
   MdClose,
   CgPlayListRemove,
+  IoMdArrowDropdown,
 };
