@@ -55,6 +55,11 @@ input {
   box-shadow: 1px 1px 9px -1px var(--primary-color);
 }
 
+.button-outline-primary,
+.button-outline-secondary {
+  background-color: inherit;
+}
+
 .invisible-scroll {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -90,4 +95,23 @@ input {
   bottom: -0.5rem;
   transform: translate(-100%, 100%);
   transform-origin: 100% 50%;
+}
+
+.text-elipsis {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-elipsis-2lines {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.word-break {
+  width: 100%;
+  word-wrap: break-word;
 }

@@ -15,7 +15,7 @@ function Modal({ open, children, close }) {
         {children}
       </div>
     </>,
-    document.getElementById("modal-root")
+    document.getElementById("portal-root")
   );
 }
 

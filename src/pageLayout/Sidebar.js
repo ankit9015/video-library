@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   BiLike,
   MdExplore,
@@ -8,12 +8,14 @@ import {
   MdOutlineWatchLater,
   MdPlaylistPlay,
 } from "../constants/icon";
+import { useAuth } from "../context/AuthContext/AuthContext";
 
 function Sidebar(props) {
   const getActiveLinkStyle = ({ isActive }) => ({
     color: isActive ? "var(--primary-color)" : "",
     fontWeight: "bold",
   });
+  const { authState, logOutHandler } = useAuth();
 
   return (
     <div
@@ -74,6 +76,21 @@ function Sidebar(props) {
         <MdOutlineWatchLater className="text-lg" />
         <p>Watch Later</p>
       </NavLink>
+      {authState.isLoggedIn ? (
+        <button
+          className="auth-button logout text-md button button-primary"
+          onClick={() => logOutHandler()}
+        >
+          Log-out
+        </button>
+      ) : (
+        <Link
+          to="/login"
+          className="auth-button login text-md button no-link button-primary"
+        >
+          Login
+        </Link>
+      )}
     </div>
   );
 }

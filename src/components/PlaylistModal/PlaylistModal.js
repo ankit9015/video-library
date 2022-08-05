@@ -13,9 +13,7 @@ import {
 function PlaylistModal(props) {
   const { video, showPlaylistModal, setShowPlaylistModal } = props;
   const { playlistsState, playlistsDispatch } = usePlaylist();
-
   const { authState } = useAuth();
-
   const [openCreate, toggleCreate] = useState(false);
 
   const addToPlaylist = async (playlist) => {
@@ -50,7 +48,7 @@ function PlaylistModal(props) {
           <div className="playlist-modal__suggestions invisible-scroll flex-column gap-5 text-md p-xs">
             {playlistsState &&
               playlistsState.map((item) => (
-                <label key={item._id}>
+                <label className="flex-row" key={item._id}>
                   <input
                     className="text-md available-playlists"
                     type="checkbox"
@@ -63,7 +61,7 @@ function PlaylistModal(props) {
                       }
                     }}
                   />
-                  {item.title}
+                  <p className="text-elipsis">{item.title}</p>
                 </label>
               ))}
           </div>

@@ -26,8 +26,10 @@ function PlaylistDetail() {
     <div className="playlist-detail main--grid">
       {playlist && (
         <div className="playlist-detail__info flex-column ">
-          <h1 className="text-lg">Title: {playlist.title}</h1>
-          <p className="text-md">Description: {playlist.description}</p>
+          <h1 className="text-lg word-break">Title: {playlist.title}</h1>
+          <p className="text-md word-break">
+            Description: {playlist.description}
+          </p>
           <p className="text-sm">Videos count: {playlist.videos.length}</p>
         </div>
       )}
