@@ -6,6 +6,7 @@ import {
 } from "../../service";
 
 import { useAuth } from "../AuthContext/AuthContext";
+import { toast } from "react-hot-toast";
 
 const LikesContext = createContext();
 
@@ -26,13 +27,19 @@ const LikesProvider = ({ children }) => {
   }, [authState]);
 
   const addToLikes = async (video) => {
-    const { data } = await addLikedService(video, authState.authToken);
-    setLikesState(data.likes);
+    try {
+      const { data } = await addLikedService(video, authState.authToken);
+      setLikesState(data.likes);
+      toast.success("Video added to Liked videos.");
+    } catch {}
   };
 
   const removeFromLikes = async (video) => {
-    const { data } = await deleteLikedService(video._id, authState.authToken);
-    setLikesState(data.likes);
+    try {
+      const { data } = await deleteLikedService(video._id, authState.authToken);
+      setLikesState(data.likes);
+      video.success("Video removed from Liked videos.");
+    } catch {}
   };
 
   return (

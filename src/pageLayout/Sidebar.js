@@ -78,7 +78,7 @@ function Sidebar(props) {
       </NavLink>
       {authState.isLoggedIn ? (
         <button
-          className="auth-button logout text-md button button-primary"
+          className="auth-button m-s logout text-md button button-primary"
           onClick={() => logOutHandler()}
         >
           Log-out
@@ -86,7 +86,7 @@ function Sidebar(props) {
       ) : (
         <Link
           to="/login"
-          className="auth-button login text-md button no-link button-primary"
+          className="auth-button m-s login text-md button no-link button-primary"
         >
           Login
         </Link>
