@@ -2,6 +2,7 @@ import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { EmailInput, PasswordInput } from "../../components/inputs";
 import { useAuth } from "../../context/AuthContext/AuthContext";
+import toast from "react-hot-toast";
 
 import "../pages.css";
 
@@ -30,6 +31,12 @@ function Signup() {
     document.title = "Signup";
   }, []);
 
+  const wrongDataToast = (msg) => {
+    toast.error(msg, {
+      position: "top-center",
+    });
+  };
+
   const updateSignupForm = (e) => {
     e.target.name === "acceptTAndC"
       ? setSignupForm({
@@ -51,13 +58,27 @@ function Signup() {
       confirmPassword,
       acceptTAndC,
     } = signupForm;
-    if (password !== "" && password !== confirmPassword) {
-      alert("Write same password in confirm password");
+    if (firstname === "" || lastname === "") {
+      wrongDataToast("Name cannot be empty");
       return;
     }
-    if (email !== "" && password !== "" && acceptTAndC) {
-      signupHandler({ firstname, lastname, email, password });
+    if (!/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(email)) {
+      wrongDataToast("Enter valid email address");
+      return;
     }
+    if (!password) {
+      wrongDataToast("Password is empty");
+      return;
+    }
+    if (password !== confirmPassword) {
+      wrongDataToast("Write matching passwords");
+      return;
+    }
+    if (!acceptTAndC) {
+      wrongDataToast("Accept Terms and Conditions");
+      return;
+    }
+    signupHandler({ firstname, lastname, email, password });
   };
 
   return (
@@ -70,7 +91,7 @@ function Signup() {
           <div className="form-container ">
             <label className="flex-column">
               <span className="text-md socketui-label label-required">
-                Firstname:
+                First name:
               </span>
               <input
                 className="socketui-input email-input text-md"
@@ -84,7 +105,7 @@ function Signup() {
             </label>
             <label className="flex-column">
               <span className="text-md socketui-label label-required">
-                Lastname:
+                Last name:
               </span>
               <input
                 className="socketui-input email-input text-md"

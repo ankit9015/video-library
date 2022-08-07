@@ -7,7 +7,9 @@ function Card(props) {
   const navigate = useNavigate();
   return (
     <div
-      className={`card p-xs ${props.variant ?? ""} ${props.className ?? ""}`}
+      className={`card p-xs cursor--pointer ${props.variant ?? ""} ${
+        props.className ?? ""
+      }`}
       onClick={() => {
         navigate({
           pathname: "explore",

@@ -4,15 +4,14 @@
   margin: 10px 5%;
   max-width: 100%;
   height: 100%;
-  padding-bottom: 10rem;
 }
 
 .watch__main-video {
   width: 100%;
-  height: auto;
   width: 70%;
   flex-grow: 1;
   gap: 5rem;
+  overflow-y: scroll;
 }
 
 .watch__video-player {
@@ -25,6 +24,7 @@
   box-sizing: border-box;
   width: 100%;
   background-color: var(--black-bg);
+  margin-bottom: 2rem;
 }
 
 .watch__video-container {
@@ -44,7 +44,7 @@
 
 .watch__suggestions {
   width: 40rem;
-  height: 95%;
+  height: 100%;
   min-width: 4rem;
   overflow-y: scroll;
   border: 1px solid var(--dark-gray);
@@ -75,6 +75,10 @@
 
   .watch {
     flex-wrap: wrap;
+  }
+
+  .watch__main-video {
+    overflow-y: auto;
   }
 
   .watch__suggestions {

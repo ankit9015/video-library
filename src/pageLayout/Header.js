@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SearchBox from "../components/SearchBox/SearchBox";
 import { MdSearch, MdMenu } from "../constants/icon";
 import { useAuth } from "../context/AuthContext/AuthContext";
@@ -8,6 +8,7 @@ import "./pageLayout.css";
 function Header(props) {
   const [showSearchbox, setShowSearchbox] = useState(false);
   const { authState, logOutHandler } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <div className="header flex-row  flex-align-center p-xs">
@@ -18,7 +19,12 @@ function Header(props) {
         >
           <MdMenu />
         </span>
-        <img className="header__logo" src="./logo.png" alt="logo" />
+        <img
+          className="header__logo cursor--pointer"
+          src="./logo.png"
+          alt="logo"
+          onClick={() => navigate("../")}
+        />
       </div>
       <span
         className={`header__search-box ${
