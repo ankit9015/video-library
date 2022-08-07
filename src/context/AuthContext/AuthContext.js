@@ -20,41 +20,49 @@ const AuthProvider = ({ children }) => {
   });
 
   const loginHandler = async ({ email, password }) => {
-    const { data, status } = await loginService({ email, password });
-    if (status === 200) {
-      localStorage.setItem("AUTH-TOKEN", JSON.stringify(data.encodedToken));
-      localStorage.setItem("USER-INFO", JSON.stringify(data.foundUser));
-      setAuthState({
-        isLoggedIn: true,
-        authToken: JSON.stringify(data.encodedToken),
-        userInfo: data.foundUser,
+    try {
+      const { data, status } = await loginService({ email, password });
+      if (status === 200) {
+        localStorage.setItem("AUTH-TOKEN", JSON.stringify(data.encodedToken));
+        localStorage.setItem("USER-INFO", JSON.stringify(data.foundUser));
+        setAuthState({
+          isLoggedIn: true,
+          authToken: JSON.stringify(data.encodedToken),
+          userInfo: data.foundUser,
+        });
+        location.state ? navigate(location.state.from.pathname) : navigate("/");
+        toast.success("User Logged in.");
+      }
+    } catch {
+      toast.error("Username or password is incorrect", {
+        position: "top-center",
       });
-      location.state ? navigate(location.state.from.pathname) : navigate("/");
-      toast.success("User Logged in.");
-    } else {
-      toast.error("Login failed");
     }
   };
 
   const signupHandler = async ({ firstname, lastname, email, password }) => {
-    const { data, status } = await signupService({
-      firstname,
-      lastname,
-      email,
-      password,
-    });
-    if (status === 201) {
-      localStorage.setItem("AUTH-TOKEN", JSON.stringify(data.encodedToken));
-      localStorage.setItem("USER-INFO", JSON.stringify(data.createdUser));
-      setAuthState({
-        isLoggedIn: true,
-        authToken: JSON.stringify(data.encodedToken),
-        userInfo: data.createdUser,
+    try {
+      const { data, status } = await signupService({
+        firstname,
+        lastname,
+        email,
+        password,
       });
-      location.state ? navigate(location.state.from.pathname) : navigate("/");
-      toast.success("User Signed up.");
-    } else {
-      toast.error("Signup failed");
+      if (status === 201) {
+        localStorage.setItem("AUTH-TOKEN", JSON.stringify(data.encodedToken));
+        localStorage.setItem("USER-INFO", JSON.stringify(data.createdUser));
+        setAuthState({
+          isLoggedIn: true,
+          authToken: JSON.stringify(data.encodedToken),
+          userInfo: data.createdUser,
+        });
+        location.state ? navigate(location.state.from.pathname) : navigate("/");
+        toast.success("User Signed up.");
+      }
+    } catch {
+      toast.error("Signup failed", {
+        position: "top-center",
+      });
     }
   };
 

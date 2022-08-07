@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { EmailInput, PasswordInput } from "../../components/inputs";
 import { useAuth } from "../../context/AuthContext/AuthContext";
@@ -26,7 +27,21 @@ function Login() {
     document.title = "Login";
   }, []);
 
+  const wrongDataToast = (msg) => {
+    toast.error(msg, {
+      position: "top-center",
+    });
+  };
+
   const loginAccount = ({ email, password, rememberUser }) => {
+    if (!/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(email)) {
+      wrongDataToast("Enter valid email address");
+      return;
+    }
+    if (!password) {
+      wrongDataToast("Password is empty");
+      return;
+    }
     if (rememberUser) {
       localStorage.setItem(
         "SAVED-LOGIN-INFO",

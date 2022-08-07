@@ -20,7 +20,17 @@ function App() {
       <Sidebar showSidebar={showSidebar} />
 
       <Main />
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        toastOptions={{
+          className: "text-md toast p-s",
+        }}
+        containerStyle={{
+          top: "10rem",
+          right: "10rem",
+        }}
+      />
     </div>
   );
 }
